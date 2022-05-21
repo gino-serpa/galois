@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
 \begin{document}
 
 \section{LINEAR ALGEBRA}
@@ -33,13 +35,12 @@ If $V$ is an additive abelian group with elements $A, B, . . . , F$ a field with
 $a, b, . . . ,$ and if for each $a \in F$ and $A \in V$ the product $aA$ denotes an element 
 of $V$, then $V$ is called a (left) vector space over $F$ if the following assumptions hold:
 
-\begin{itemize}
-\item $a(A + B) = aA + aB$
-\item $(a + b)A = aA + bA$
-\item $a(bA) = (ab)A$
-\item $1A = A$
-\end{itemize}
-
+\begin{align*}
+	a(A + B) & = aA + aB \\
+    (a + b)A & = aA + bA \\
+    a(bA)    & = (ab)A   \\
+          1A & = A
+\end{align*}
 
 The reader may readily verify that if $V$ is a vector space over F, then
 $oA = o$ and $a0 = 0$ where $o$ is the zero element of $F$ and $0$ that of $V$.
@@ -62,72 +63,2763 @@ If in a field $F$, $a_{ij}$, $i = 1,2,. . . , m$, $j = 1,2, . . . ,$ $n$ are $mn
 elements, it is frequently necessary to know conditions guaranteeing the
 existence of elements in $F$ such that the following equations are satisfied:
 
-\[
-a,, xi + a,, x2 + . . . + alnxn = 0.
-(1) . *
-a ml~l + amzx2 + . . . + amnxn = 0.
-\]
+\begin{align}
+a_{11} x_1 + a_{12} x_2 + . . . + a_{1n} x_n& = 0 \nonumber \\
+& \vdots \\
+a_{m1} x_1 + a_{m2} x_2 + . . . + a_{mn} x_n& = 0 \nonumber
+\end{align}
 
 The reader Will recall that such equations are called linear
-homogeneous equations, and a set of elements, xi, x2,. . . , xr,
-of F, for which a11 the above equations are true, is called
+homogeneous equations, and a set of elements $x_1, x_2, . . . ,x_n$
+of $F$, for which all the above equations are true, is called
+a solution of the system. If not all of the elements $x_1, x_2, . . . , x_n$
+are $0$ the solution is called non-trivial; otherwise, it is called trivial.
 
-3
-a solution of the system. If not a11 of the elements xi, xg, . . . , xn
-are o the solution is called non-trivial; otherwise, it is called trivial.
-THEOREM 1. A system of linear homogeneous equations always
+\begin{theorem}
+A system of linear homogeneous equations always has a non-trivial solution if 
+the number of unknowns exceeds the number of equations
+\end{theorem}
 
-has a non-trivial solution if the number of unknowns exceeds the num-
-ber of equations.
-
+\begin{proof}
 The proof of this follows the method familiar to most high school
-students, namely, successive elimination of unknowns. If no equations
-in n > 0 variables are prescribed, then our unknowns are unrestricted
-and we may set them a11 = 1.
-We shall proceed by complete induction. Let us suppose that
-each system of k equations in more than k unknowns has a non-trivial
-solution when k < m. In the system of equations (1) we assume that
-n > m, and denote the expression a,ixi + . . . + ainxn by L,, i = 1,2,. . .,m.
-We seek elements xi, . . . , x,, not a11 o such that L, = L, = . . . = Lm = o.
-If aij = o for each i and j, then any choice of xi , . . . , xr, Will serve as
-a solution. If not a11 aij are o, then we may assume that ail f o, for
+students, namely, successive elimination of unknowns. 
+If no equations in $n > 0$ variables are prescribed, then our unknowns are unrestricted
+and we may set them a11 to $1$.
+
+We shall proceed by complete induction. 
+Let us suppose that each system of $k$ equations in more than $k$ unknowns has a non-trivial
+solution when $k < m$. 
+In the system of equations (1) we assume that $n > m$, and denote the expression 
+$a_{1i} x_1 + \ldots + a_{in} x_n$ by $L_i, i = 1, 2,\ldots, m$.
+We seek elements $x_1, \ldots , x_n$ not all $0$ such that $L_1 = L_2 = \ldots = L_m = 0$.
+
+If $a_{ij} = 0$ for each $i$ and $j$, then any choice of $x_i , \ldots , x_r$, will serve as
+a solution. 
+If not all $a_{ij}$ are $0$, then we may assume that $a_{11} \neq 0$, for
 the order in which the equations are written or in which the unknowns
 are numbered has no influence on the existence or non-existence of a
-simultaneous solution. We cari find a non-trivial solution to our given
-system of equations, if and only if we cari find a non-trivial solution
-to the following system:
-L, = 0
-L, - a,,a,;lL, = 0
-. . . . .
-Lm - amia,;lL, = 0
+simultaneous solution. 
+We can find a non-trivial solution to our given system of equations, if and only if we can 
+find a non-trivial solution to the following system:
 
-For, if xi,. . . , x,, is a solution of these latter equations then, since
-L, = o, the second term in each of the remaining equations is o and,
-hence, L, = L, = . . . = Lm = o. Conversely, if (1) is satisfied, then
-the new system is clearly satisfied. The reader Will notice that the
-new system was set up in such a way as to “eliminate” x1 from the
-last m-l equations. Furthermore, if a non-trivial solution of the last
-m-l equations, when viewed as equations in x2, . . . , xn, exists then
-taking xi = - ai;‘( ai2xz + ar3x3 + . . . + alnxn) would give us a
-solution to the whole system. However, the last m-l equations have
-a solution by our inductive assumption, from which the theorem follows.
+\begin{align*}
+L_1                           & = 0 \\
+L_2 - a_{21} a_{11}^{-1} L_1  & = 0 \\
+\vdots \\
+Lm - a_{m1} a_{11}^{-1} L_1 & = 0
+\end{align*}
+
+For, if $x_1,\ldots ,x_n$ is a solution of these latter equations then, since
+$L_1 = 0$, the second term in each of the remaining equations is $0$ and,
+hence, $L_1 = L_2 = . . . = L_m = 0$. 
+Conversely, if (1) is satisfied, then the new system is clearly satisfied. 
+The reader will notice that the new system was set up in such a way as to 
+“eliminate” $x_1$ from the last $m-1$ equations. 
+Furthermore, if a non-trivial solution of the last $m-l$ equations, 
+when viewed as equations in $x_2, \ldots ,x_n$, exists then
+taking $x_1 = - a_{11}^{-1} ( a_{12}x_2 + a_{13} x_3 + . . . + a_{1n} x_n)$ would give us a
+solution to the whole system. 
+However, the last $m-l$ equations have a solution by our inductive assumption, 
+from which the theorem follows.
+\end{proof}
+
 Remark: If the linear homogeneous equations had been written
-in the form xxjaij = o, j = 1,2, . . . , n, the above theorem would still
-hold and with the same proof although with the order in which terms
-are written changed in a few instances.
-D. Dependence and Independence of Vectors.
-In a vector space V over a field F, the vectors A,, . . . , An are
-called dependent if there exist elements xi, . . . , x”, not a11 o, of F such
-that xiA, + x2A, + . . . + xnAn = 0. If the vectors A,, . . . ,An are
-not dependent, they are called independent.
-The dimension of a vector space V over a field F is the maximum
-number of independent elements in V. Thus, the dimension of V is n if
-there are n independent elements in V, but no set of more than n
-independent elements.
-A system A,, . . . , A, of elements in V is called a
-generating system of V if each element A of V cari be expressed
+in the form $x_j a_{ij} = 0, j = 1,2,\ldots, n$, the above theorem would still
+hold and with the same proof although with the order in which terms are written changed
+in a few instances.
 
-5
-linearly in terms of A,, . . . , Am, i.e., A = Ca.A. for a suitable choice i=ll 1
-ofa,, i = l,..., m,inF.
+\subsection{Dependence and Independence of Vectors}
+
+In a vector space $V$ over a field $F$, the vectors $A_1, \ldots , A_n$ are
+called dependent if there exist elements $x_1, \dots , x_n$, not all $o$, of $F$ such
+that $ x_1 A_1 + x_2 A_2 + \ldots + x_n A_n = 0$. 
+If the vectors $A_1, \ldots,An$ are not dependent, they are called independent.
+The dimension of a vector space $V$ over a field $F$ is the maximum
+number of independent elements in $V$. 
+Thus, the dimension of $V$ is $n$ if there are $n$ independent elements in $V$, 
+but no set of more than $n$ independent elements.
+A system $A_1, \ldots, A_n$, of elements in $V$ is called a
+generating system of $V$ if each element $A$ of $V$ can be expressed linearly in 
+terms of $A_1, \ldots, Am$, i.e., $A = \sum_{i=1}^m a_i A_i$ for a suitable choice
+of $a_i, i = l, \ldots , m$ , in $F$ .
+
+\begin{theorem}
+In any generating system the maximum number of
+independent vectors is equal to the dimension of the vector space.
+\end{theorem}
+
+\begin{proof}
+Let $A_1, \ldots, A_m$ be a generating system of a vector space $V$ of dimension $n$. 
+Let $r$ be the maximum number of independent elements in the generating system. 
+By a suitable reordering of the generators we may assume $A_1, \ldots , A_r$ independent. 
+By the definition of dimension it follows that $r < n$. 
+For each $j$, $A_1, \ldots, A_r, A_{r+j}$ are dependent, and in the relation
+\begin{equation}
+a_1 A_1 + a_2 A_2+ \ldots + a_r A_r + a_{r+j} A{r+j} = 0
+\end{equation}
+
+expressing this, $a_{r+j} \neq o$, for the contrary would assert the dependence
+of $A_1, \ldots, A_r$. 
+Thus,
+\begin{equation}
+A_{r+j} = - a_{r+j}^{-1} [a_1 A_1 + a_2 A_2 + \ldots + a_r A_r]
+\end{equation}
+
+It follows that $A_1, \ldots , A_r$ is also a generating system since in the
+linear relation for any element of $V$ the terms involving $A_{r+j}$, $j\neq 0$, 
+can all be replaced by linear expressions in $A_1, \ldots , A_r$.
+
+Now, let $B_1,\ldots, B_t$ be any system of vectors in $V$ where $t > r$,
+then there exist $a_{ij}$ such that $Bj = \sum_{i=1}^r a_{ij} A_i$, $j = 1,2, \ldots ,t$, 
+since the $A_i$’s form a generating system. 
+If we can show that $B_1, \ldots , B_t$ are dependent, this will give us $r \geq n$, 
+and the theorem will follow from this together with the previous inequality $r \leq n$. 
+Thus, we must exhibit the existence of a non-trivial solution out of $F$ of the equation
+
+\begin{equation}
+x_1 B_1 + x_2 B_2 + \ldots + x_t B_t = 0
+\end{equation}
+
+To this end, it will be sufficient to choose the $x_i$’s so as to satisfy
+the linear equations $\sum_{j=1}^t x_j a_{ij} = o$, $i = 1, 2,\ldots, r$, since these 
+expressions  will be the coefficients of $A_i$ when in 
+$ \sum_{j=1}^t x_j B_j$ the $Bj$‘s are replaced by  $\sum_{i=1}^r a_{ij} A_i$ and terms are collected. 
+A solution to the equations $\sum_{i=1}^t x_j a_{ij} = 0$, $i = 1, \ldots, r$, always exists by Theorem 1.
+\end{proof}
+
+Remark: Any n independent vectors $A,, . . . , A,$, in an n dimen-
+sional vector space form a generating system. For any vector A, the
+vectors $A, A,, . . . , A,,$ are dependent and the coefficient of $A$, in the
+dependence relation, cannot be zero. 
+Solving for $A$ in terms of $A,...,A,$, exhibits $A,, . . . ,An$ as a generating system.
+
+
+
+A subset of a vector space is called a subspace if it is a sub-
+group of the vector space and if, in addition, the multiplication of any
+element in the subset by any element of the field is also in the subset.
+I f A i , . . . , AS are elements of a vector space V, then the set of a11 ele-
+ments of the form a, A, + . . . + asAS clearly forms a subspace of V.
+It is also evident, from the definition of dimension, that the dimension
+of any subspace never
+exceeds the dimension of the whole
+vector space.
+An s-tuple of elements ( a,, . . . , as ) in a field F Will be called
+a - row vector.
+- The totality of such s-tuples form a vector space if
+we define
+a) (a,,a, ,..., as) = (b,,b, ,..., bS)ifandonlyif
+a, = b,, i = 1,. . . , s,
+B> (alta2,...,as)
++ (bl,b2,...,bs)
+= (a1 + b,,a, + b,,
+. . ..aS + bs),y) b(a,,a, ,..., as) = (ba,,ba, ,..., baS),forban
+element of F.
+When the s-tuples are written vertically,
+they Will be called column vectors.
+
+THEOREM 3. The row (column) vector space F” of a11 n-tuples
+from a field F is a vector space of dimension n over F.
+The n elements
+Cl = (l,o,o ,...> 0)
+E2 = (o,l,o >..., 0)
+6, = (o,o,...,o,l)
+are independent and generate F”. Both remarks follow from the relation
+(a1,a2,. . . ,an) = Xaici.
+We cal1 a rectangular array
+of elements of a field F a matrix. By the right row rank of a matrix, we
+mean the maximum number of independent row vectors among the rows
+(ail,..., a,,) of the matrix when multiplication by field elements is
+from the right. Similarly, we define left row rank, right column rank and
+left column rank.
+
+THEOREM 4. In any matrix the right column rank equals the left
+row rank and the left column rank equals the right row rank. If the field8
+is commutative, these four numbers are equal to each other and are
+called the rank of the matrix.
+Cal1 the column vectors of the matrix C,, . ~ . , Cn and the row
+vectors R,, . . . , Rm. The column vector 0 is
+o
+and any
+0
+(:)
+0
+dependence Crx, + C,x, + . . . + Cnx, = 0 is equivalent to a
+solution of the equations
+arrxr + a12x2 + . . . + a lnxn = O
+(1)
+:
+amlxl + amZx2
++ . . . + a nmxn =
+0.
+Any change in the order in which the rows of the matrix are written
+gives rise to the same system of equations and, hence, does not change
+the column rank of the matrix, but also does not change the row rank
+since the changed
+matrix would have the same set of row vectors. Cal1
+c the right column rank and r the left row rank of the matrix. By the
+above remarks we may assume that the first r rows are independent row
+vectors. The row vector space generated by a11 the rows of the matrix
+has, by Theorem 1, the dimension r and is even generated by the first
+r rows. Thus, each row after the rth .1s linearly expressible in terms of
+the first r rows. Consequently, any solution of the first r equations in
+(1) Will be a solution of the entire system since any of the last n-r
+equations is obtainable as a linear combination of the first r. Con-
+versely, any solution of (1) Will also be a solution of the first r
+equations. This means that the matrix9
+( 4
+%la12- * .%n
+.
+.
+. .
+. .
+arr ar2. . . a rn
+consisting of the first r rows of the original matrix has the same right
+column rank as the original. It has also the same left row rank since
+the r rows were chosen independent. But the column rank of the ampu-
+tated matrix car-mot exceed r by Theorem 3. Hence, c <
+- r. Similarly,
+calling c’ the left column rank and r’ the right row rank, c’ < - r’.
+If we form the transpose of the original matrix, that is, replace rows by
+columns and columns by rows, then the left row rank of the transposed
+matrix equals the left column rank of the original. If then to the
+transposed matrix we apply the above considerations we arrive at
+r -
+< c and r’ <
+-. c’.
+
+E. -
+Non-homogeneous Linear Equations.
+The system of non-homogeneous linear equations
+arrxi + ar2x2 + . . . + alnxn = bl
+azlxl + . . . . . . . . . . . + aznxn = b2
+(2)
+:
+amlxl + . . . . . . . . . . . +
+a mm=
+x
+il n-8
+has a solution if and only if the column vector
+lies
+in the space generated by the vectors
+(..)-
+(i:-)10
+This means that there is a solution if and only if the right column rank of
+the matrix
+51..
+.%n
+is the same as the
+ii a ml’ . . amn
+4
+right column rank of the augmented matrix
+51. . * %A
+.
+.
+. .
+. .
+i! a ml* * ’ arnnb, i
+since the vector space generated by the original must be the same as
+the vector space generated by the augmented matrix and in either case
+the dimension is the same as the rank of the matrix by Theorem 2.
+By Theorem 4, this means that the row tanks are equal. Con-
+versely, if the row rank of the augmented matrix is the same as the row
+rank of the original matrix, the column ranks Will be the same and the
+equations Will have a solution.
+If the equations (2) have a solution, then any relation among the
+rows of the original matrix subsists among the rows of the augmented
+matrix. For equations (2) this merely means that like combinations
+of equals are equal. Conversely, if each relation which subsists be-
+tween the rows of the original matrix also subsists between the rows
+of the augmented matrix, then the row rank of the augmented matrix
+is the same as the row rank of the original matrix. In terms of the
+equations this means that there Will exist a solution if and only if
+the equations are consistent, Le., if and only if any dependence
+between the left hand sides of the equations also holds between the
+right sides.11
+
+THEOREM 5. If in equations (2) m = n, there exists a unique
+solution if and only if the corresponding homogeneous equations
+arrxr + arzxz + . . . + alnxn = 0
+anlxl + an2x2 + . . . + annxn = 0
+have only the trivial solution.
+If they have only the trivial solution, then the column vectors
+are independent. It follows that the original n equations in n unknowns
+Will have a unique solution if they have any solution, since the differ-
+ence, term by term, of two distinct solutions would be a non-trivial
+solution of the homogeneous equations. A solution would exist since
+the n independent column vectors form a generating system for the
+n-dimensional space of column vectors.
+Conversely, let us suppose our equations have one and only one
+solution. In this case, the homogeneous equations added term by
+term to a solution of the original equations would yield a new solu-
+tion to the original equations. Hence, the homogeneous equations have
+only the trivial solution.
+F. Qeterminants. l)
+The theory of determinants that we shall develop in this chapter
+is not needed in Galois theory. The reader may, therefore, omit this
+section if he
+SO
+desires.
+We assume our field to be c o m m ut a t i v e and consider the
+square matrix
+1) Of the preceding theory only Theorem 1, for
+homogeneous equations and the notion of
+linear dependence are assumed known.12
+( J
+allalz*
+. . . %n
+a21a22~**.%
+(1)
+. . . . . . . . . . . .
+an1 an2. . . . a nn
+of n rows and n columns. We shall define a certain function of this
+matrix whose value is an element of our field. The function Will be
+called the determinant and Will be denoted by
+%1%2. . . .%n
+%!1a22--.‘a2n
+. . . . . . . . . . . .
+n,?l,*
+o r b y D(A,,A,,...
+*. ‘?ln
+An) if we wish to consider it as a function of the
+column vectors A,, A,, . . . A,, of (1). If we keep a11 the columns but A,
+constant and consider the determinant as a function of A,, then we
+Write DJ Ak) and sometimes even only D.
+Definition. A function of the column vectors is a determinant if
+it satisfies the following three axioms:
+1. Viewed as a function of any column A, it is linear and homogeneous, i.e..,
+( 3 ) (A,
+(4)
++ 4) = Dk(Ak)
+D,(cA,) = c-D,(A,
++ (A;)
+>
+2. Its value is = 01) if the adjacent columns A, and Ak+l are equal.
+3. Its value is = 1 if a11 A, are the unit vectors U, where
+1) H e n c e f o r t h , 0 Will denote
+of a field.
+t h e zero e l e m e n t(5) “, f);“*=(I) . . . . . ;-iii
+The question as to whether determinants exist Will be left open
+for the present. But we derive consequences from the axioms:
+a) If we put c = 0 in (4) we get: a determinant is 0 if one of
+the columns is 0.
+b) Dk(Ak) =
+ (A, +
+or a determinant remains unchanged
+CA,,,)
+-
+if we add a multiple of one column to an adjacent column. Indeed
+%(A,
++ CA,,,)
+- = Dk(Ak) + cD,(A,+,) = Dk(Ak)
+because of axiom 2.
+c) Consider the two columns A, and Ak+i. We may replace them by
+A, and Ak+i + A k; subtracting the second from the first we may replace
+them by - Ak+i and Ak+i + A,, . adding the first to the second we now
+have - Ak+r and A,, . finally, we factor out -1. We conclude: a determi-
+nant changes sign if we interchange two adjacent columns.
+d) A determinant vanishes if any two of its columns are equal.
+Indeed, we may bring the two columns side by side after an interchange
+of adjacent columns and then use axiom 2. In the same way as in b)
+and c) we may now prove the more general rules:
+e) Adding a multiple of one column to another does not change
+the value of the determinant.
+f) Interchanging any two columns changes the sign of D.14
+vn) be a permutation of the subscripts
+g> Let(v,,v,,...
+(1,2,, . . . n). If we rearrange the columns in D( At,,i, AV2, . . . , A,, )
+n
+until they are back in the natural order, we see that
+WAvl,Av >...y A, ) = +D(A,,A,
+2
+Here 2 is a definite sign that do:s not depend
+,...> An).
+on the special values
+of the A,. If we substitute U, for A, we see that
+WJl,JJv2,..., U, ) = i 1 and that the sign depends
+1
+only on the
+permutation of the tnit vectors.
+Now we replace each vector A, by the following linear combina-
+tionAkofAr,A2,...,A,:
+(6) A; = brkA,
++ b,,A, + . . . + b,,A,.
+In computing D(Ai ,A;, . . . , AA) we first apply axiom 1 on A;
+breaking up the determinant into a sum; then in each term we do the
+same with A; and
+SO
+on. We get
+2
+D(b, ,A, ,bv22Av >. . . Jj, n ,AI, n >
+,v2*. ,v,
+1
+1
+2
+=
+b, ;b, 2.. . ..b,nD(Ar, ,A,, . . . ,A, )
+c
+I-4
+1
+2
+n
+1
+2
+VI,V2, * *. ,vn
+where each vi runs independently from 1 to n. Should two of the indices
+( 7 ) D(A;,A;,...,A;)=
+v1
+vi be equal, then D( Avl, A, , . . . , AV,) = 0; we need therefore keep
+2
+only those terras in which ( vi, v2, . . . ,
+(1,2,...,
+is a permutation of
+n). This gives
+D(A;,A;,...,A;)
+(8)
+= D(A,,A2 ,...> A,).
+where(v1,v2,...,
+(1,2,...,
+vn)
++ bv1,.bv2, . . . . .b, n
+2
+n
+( vl, * * * 9Vn)
+v,) runs through a11 the permutations of
+n) and where L stands for the sign associated with that
+permutation. It is important to remark that we would have arrived at
+the same formula (8) if our function D satisfied only the first two1.5
+of our axioms.
+Many conclusions may be derived from (8).
+W’e first assume axiom 3 and specialize the 4, to the unit vec-
+tors Uk of (5). This makes 4 = B, where B, is the column vector of
+the matrix of the bik. (8) yields now:
+(9)
+WBl,B2,...,B,,)=(V
+2
+1 >UZ’...’
++ bVll+V2î-bv n
+n
+vn > -
+giving us an explicit formula for determinants and showing that they are
+uniquely determined by our axioms provided they exist at all.
+W’ith
+(10)
+expression (9) we retum to formula (8) and get
+D(A;,A;
+,...> A;) = D(A,,A,
+,...> A,)D(B,,B,
+,...> Bn).
+This is the so-called multiplication theorem for determinants. At
+the left of (10) we have the determinant of an n-rowed matrix whose ele-
+ments cik are given by
+Cik =
+(11)
+n
+x
+?vbw
+v=1
+cik is obtained by multiplying the elements of the i - th row of
+WA,,A,,...,
+AJbythoseofthek-thcolumnofD(B,,B,,...,B,.,)
+and adding.
+Let us now replace D in (8) by a function F(A,, . . . , A,) that
+satisfies only the first two axioms. Comparing with (9) we find
+F(A;,A;
+,..., A;)=F(A,
+>..., AJD(BI,B2
+Specializing A, to the unit vectors U, leads to
+(12)
+F(B,,B,, . . . ,B,) = c.D(B,,B,,
+with
+c = F(U,,U,,. . . ,U”).
+. . . ,B,)
+,...> B,).16
+Next we specialize (10) in the following way: If i is a certain
+subscript from 1 to n-l we put A, = U, for k f i, i+ 1
+Ai = Ui + Ui+r , Ai+, = 0. Then D( A,, A,, + . . , A, ) = 0 since one col-
+umn is Q, Thus, D(Ai ,A;, , . . , An) = 0; but this determinant differs
+from that of the elements bj, only in the respect that the i+l-st row
+has been made equal to the i-tb. We therefore see:
+A determinant vanishes if two adjacent rows are equal.
+I ch term in (9) is a product
+where precisely one factor cornes
+from a given row, say, the i-th. This shows that the determinant is
+linear and homogeneous if çonsidered as function of this row. If,
+finally, we Select for eaeh raw the corresponding unit vector, the de-
+terminant is = 1 since the matrix is the same as that in which the col-
+umns are unit vectors. This shows that a determinant satisfies our
+three axioms if we consider it as function of the row vectors. In view
+of the uniqueness it follows:
+A determinant remains unchanged if we transpose the row vec-
+tors into column vectors, that is, if we rotate the matrix about
+its
+main diagonal.
+A determinant vanishes if any two rows are equal. It changes
+sign if we interchange any two rows. It remains unchanged if we add
+a multiple of one row to another.
+We shall now prove the existence of determinants. For a 1-rowed
+matrix a 1 1 the element ai 1 itself is the determinant. Let us assume the
+existence of (n - 1) - rowed determinants. If we consider the n-rowed
+matrix (1) we may associate with it certain (n - 1) - rowed determinants
+in the following way: Let ai, be a particular element in (1). We17
+cancel the i-th row and k-th column in (1) and take the determinant
+of the remaining (n - 1) - rowed matrix. This determinant multiplied by
+(-l)i+k Will be called the cofactor of a ik and be denoted by Ai,.
+The distribution of the sign (- 1) i+k follows the chessboard pattern,
+namely,
+. . . . . . . .
+Let i be any number from 1 to n. We consider the following
+function D of the matrix (1):
+(13)
+D = ailAi, + ai2Ai, + . . + ainAi,.
+[t is the sum of the products of the i-th Tow and their cofactors.
+Consider this D in its dependence on a given column, say, A,.
+For v f k, Au, depends
+linearly on A, and ai, does not depend
+for v =: k, Ai, does not depend
+on it;
+on A, but aik is one element of this
+column. Thus, axiom 1 is satisfied. Assume next that two adjacent
+columns A, and Ak+l are equal. For v f k, k + 1 we have then two
+equal columns in Ai,
+SO
+that A,, = 0. The determinants used in the
+computation of Ai k and Ai k+l are the same but the signs are opposite
+hence, Ai k = -Ai k+l whereas ai k = a, k+l’ Thus D = 0 and axiom 2
+holds. For the special case A, = U,( v = 1,2,. . , n) we have
+aiV
+= 0 for v f i while a,, = 1, Aii = 1. Hence, D = 1 and
+this is axiom 3. This proves both the existence of an n-rowed18
+determinant as well as the truth of formula (13), the so-called develop-
+ment of a determinant according to its i-th row. (13) may be generalized
+as follows: In our determinant replace the i-th row by the j-th row and
+develop according to this new row. For i f j that determinant is 0 and
+for i = j it is D:
+D for j = i
+(14)
+ajl *il
++ ajzAi2 t . . . + ainAi,, =
+0 forj f i
+If we interchange the rows and the columns we get the
+following formula:
+D for h = k
+(15)
+a,,* Ik t aZr,A,, + . . + a,hAnk
+=
+0 for h f k
+Now let A represent an n-rowed and B an m-rowed square matrix.
+By ( A 1, ( B \ we mean their determinants. Let C be a matrix of n rows
+and m columns and form the square matrix of n + m rows
+where 0 stands for a zero matrix with m rows and n columns. If we con-
+sider the determinant of the matrix (16) as a function ofthecolumns of A
+only, it satisfies obviously the first two of our axioms. Because of (12)
+its value is c . 1 A 1 where c is the determinant of (16) after substituting
+unit vectors for the columns of A. This c still depends
+on B and con-
+sidered as function of the rows of B satisfies the first two axioms.
+Therefore the determinant of (16) is d. 1 A 1 . 1 B 1 where d is the special
+case of the determinant of (16) with unit vectors for the columns of A
+as well as of B. Subtracting multiples of the columns of A from
+C we cari replace C by 0. This shows d = 1 and hence the formula19
+(17)
+In a similar fashion we could have shown
+(18)
+A 0
+= A. JBI.
+I C B I
+The formulas (17), (18) are special cases of a general theorem
+by Lagrange that cari be derived from them. We refer the reader to any
+textbook on determinants since in most applications (17) and (18)
+are sufficient.
+We now investigate what it means for a matrix if its determinant
+is zero. We cari easily establish the following facts:
+a) If A,, A,, . , . , An are linearly dependent, then
+DCA,, A,, . . . t A,) = 0. Indeed one of the vectors, say A,, is then a
+linear combination of the other columns; subtracting this linear com-
+bination from the column A, reduces it to 0 and
+SO
+D = 0.
+b) If any vector B cari be expressed as linear combination of
+A,, A,, . . . >A, then D(A,,A,,.
+. ., A,,)  0. Returning to (6) and
+(10) we may Select the values for bi, in such a fashion that every
+A! ,= I.Ji. For this choice the left side in (10) is 1 and hence
+DCA,,..., A,) on the right side f 0.
+c) Let A,, A,, . . . , A,, be linearly independent and B any other
+vector. If we go back to the components in the equation
+Aix, + A,x, + . . . + A,.,x,,+ By = 0 we obtain n linear homogeneous
+equations in the n + 1 unknowns x i, x 2,. . . , xn, y. Consequently,
+there is a non-trivial solution. y must be f 0 or else the
+ApAz,...,  would be linearly dependent. But then we cari compute
+B out of this equation as a linear combination of A,, A,, . . . , An.20
+Combining these results we obtain:
+A determinant vanishes if and only if the column vectors (or the
+row vectors) are linearly dependent.
+Another way of expressing this result is:
+The set of n linear homogeneous equations
+ail 3
+( i = 1,2,...,n)
++ ai2x2 + . . . + ainx n = 0
+in n unknowns has a non-trivial solution if and only if the determinant
+of the coefficients is zero.
+Another result that cari be deduced is:
+If A1,A2>..., A,, are given, then their linear combinations cari
+represent any other vector B if and only if D (A *, A,, . . . , An) f 0.
+Or:
+The set of linear equations
+(19) aiixI + ai2x2 + . . . + ainxn = bi
+( i = 1,2,...,n)
+has a solution for arbitrary values of the bi if and only if the determi-
+nant ‘of aik is f 0. In that case the solution is unique.
+We finally express the solution of (19) by means of determinants
+if the determinant D of the aik is f 0.
+We multiply for a given k the i-th equation with Ai, and add the
+equations. (15) gives
+( 2 0 ) D. xk = A,,b,
++
+A,,bz
++
++
+Ankb,
+( k = 1,2,...,n)
+and this gives xk. The right side in (12) may also be written as the
+determinant obtained from D by replacing the k-th column by
+b,, b,, . . , b”. The rule thus obtained is known as Cramer’s rule.21
+II FIELD THEORY
+A. -
+Extension Fields.
+If E is a field and F a subset of E which, under the operations
+of addition and multiplication in E, itself forms a field, that is, if F is
+a subfield of E, then we shall cal1 E an extension of F. The relation
+of being an extension of F Will be briefly designated by F C E. If
+a, P, y, . . . are elements of E, then by F(a, B, y, . . . ) we shall mean
+the set of elements in E which cari be expressed as quotients of poly-
+nomials in a, p, y, . . with coefficients in F. It is clear that
+F(a,/3,y,.
+. . ) is a field and is the smallest extension of F which con-
+tains the elements a, p, y,. . We shall cal1 F(a, 6, y,. . . ) the field
+obtained after the adjunction of the elements a, @, y, . . . to F, or the
+field generated out of F by the elements a, B, y, . . . . In the sequel a11
+fields Will be assumed commutative.
+. . ~.
+If F C E, then ignoring the operation of multiplication defined
+between the elements of E, we may consider E as a vector space over
+F. By the degree of E over F, written (E/F), we shall mean the dimen-
+sion of the vector space E over F. If (E/F) is finite, E Will be called
+a finite extension.
+THEOREM 6. If F, B, E are three fields such
+F C ES
+C
+that
+E, then
+WF) = (B/F) (E/B) .
+Let A1,A2,..., A, be elements of E which are linearly
+independent with respect to B and let C 1, C,, . . . , C s be elements22
+of B which are independent with respect to F. Then the products Ci Ai
+where i = 1,2, . . . , s and j = 1,2, . . . , r are elements of E which are
+independent with respect to F.
+For if 2 arj C,A, = 0, then
+Lj
+C( iajj Ci ) Aj is a linear combination of the A, with coefficients in B
+j
+and because the Aj were independent with respect to B we have
+pij Ci = 0 for each j. The independence of the Ci with respect to F
+then requires that each aij = 0. Since there are r . s elements C,A, we
+have shown that for each r 5 (E/B) and s 5 (B/F) the degree ( E/F )
+> r . s. Therefore, ( E/F) > - (B/F) ( E/B). If one of the latter numbers
+-
+is infinite, the theorem follows. If both (E/B) and (B/F) are finite,
+say r and s respectively, we may suppose that the Aj and the Ci are
+generating systems of E and B respectively, and we show that the set
+of products Ci Aj is a generating system of E over F. Each A E E cari
+be expressed linearly in terms of the Aj with coefficients in B. Thus,
+A = CBj Aj . Moreover, each Bj being an element of B cari be ex-
+pressed linearly with coefficients in F in terms of the Ci, i.e.,
+Bj = Caij Ci, j = 1,2, . . . , r. Thus, A = Xaij CiAj and the Cil form
+an independent generating system of E over F.
+Corollary.
+-
+- If F C Fi C F, C . . . C F,, then
+(Fn/F) =y (F,/F).(F,/F, > . . . (F,,/F,,i).
+B. Polvnomials.
+An expression of the form aOxn + a ix”-i+ . . . + an is called a
+polynomial in F of degree n if the coefficients
+-~-23
+a 01. . . > a,., are elements of the field F and ao f 0. Multiplication and
+addition of polynomials are performed in the usual way ‘).
+~4 polynomial in F is called reducible in F if it is equal to the
+product of two polynomials in F each of degree at least one. Polyno-
+mials which are not reducible in F are called irreducible in F.
+If f (x ) = g(x) . h (x ) is a relation which holds between the
+polynomials f (x ), g (x ), h (x ) in a field F, then we shall say that
+g (x ) divides
+-
+- f (x ) in F, or that g ( x ) is a factor of f ( x ). It is readily
+seen that the degree of f(x) is equal to the sum of the degrees of
+g (x ) and h (x ), SO that if neither g ( x ) nor h ( x ) is a constant then
+each has a degree less than f(x). It follows from this that by a finite
+number of factorizations a polynomial cari always be expressed as a
+product of irreducible polynomials in a field F.
+For any two polynomials f (x ) and g (x ) the division algorithm
+holds, i.e., f(x) = q(x).g(x) + r(x) where q(x) and r(x) are
+unique polynomials in F and the degree of r (x ) is less than that of
+g(x). ‘This may be shown by the same argument as the reader met in
+elementary algebra in the case of the field of real or complex numbers.
+We also see that r(x) is the uniquely determined polynomial of a de-
+gree less than that of g (x ) such that f(x) - r (x ) is divisible by
+g (x ). We shall cal1 r (x ) the remainder of f (x ).
+1 ) I f we speak o f t h e s e t o f a11 p o l y n o m i a l s
+o f d e g r e e lower than II, we s h a l l agree t o
+include t h e p o l y n o m i a l 0 i n t h i s s e t ,
+t h o u g h i t h a s n o d e g r e e i n t h e proper sense.24
+Also, in the usual way, it may be shown that if a is a root of
+the polynomial f (x ) in F than x - u is a factor of f (x ), and as a con-
+sequence of this that a polynomial in a field cannot
+have more roots
+in the field than its degree.
+Lemma.
+-
+- If f(x) is an irreducible polynomial of degree n in F,
+then
+there - do not exist two polynomials each of degree less than n in
+-
+F
+- whose - product is divisible by f(x).
+Let us suppose to the contrary that g(x) and h(x) are poly-
+nomials of degree less than n whose product is divisible by f(x).
+Among a11 polynomials occurring in such pairs we may suppose g(x)
+has the smallest degree. Then since f(x) is a factor of g(x) . h (x )
+there is a polynomial k(x) such
+that
+k(x).f(x) = g(x).h(x)
+By the division algorithm,
+f(x) = q(x).g(x) + r(x)
+where the degree of r (x ) is less than that of g(x) and r (x ) f 0
+since f(x) was assumed irreducible. Multiplying
+f(x) = q(x).g(x) + r(x)
+by h (x ) and transposing, we have
+r(x),h(x) = f(x).h(x)-q(x).g(x).h(x)=f(x).h(x)-q(x).k(x).f(x)
+from which it follows that r(x) . h (x ) is divisible by f (x ). Since r (x )
+has a smaller degree than g(x), this last is in contradiction to the
+choice of g (x ), from which the lemma follows.
+As we saw, many of the theorems of elementary algebra
+hold in any field F. However, the so-called Fundamental
+Theorem of Algebra, at least in its customary form, does not
+hold. It Will be replaced by a theorem due to Kronecker25
+which guarantees for a given polynomial in F the existence of an ex-
+tension field in which the polynomial has a root. We shall also show
+that, in a given field, a polynomial cari net only be factored into irre-
+ducible factors, but that this factorization is unique up to a constant
+factor. The uniqueness depends
+on the theorem of Kronecker.
+C. Algebraic Elements.
+Let F be a field and E an extension field of F. If a is an ele-
+ment of E we may ask whether there are polynomials with coefficients
+in F which have a as root. a ia çalled algebraic .- with respect to F if
+tkere are such polynomials. New let a be algebraic and Select among ail
+polynomials in F which have a as root one, f(x), of lowest degree.
+We may assume that the highest coefficient of f(x) La 1. We con-
+tend that this f(x) ia uniquely determined, that it ts trreducible and
+that each polynomial in F w r the root o is divisible by f (x ). If, in-
+deed,
+g ix ) !w a palynomial in F with g(a) = 0, we may divide
+g(x) == f(x)q(x) t r(x) where r(x) bas a degree smaller t h a n t h a t
+of f(x). Substituting x = a we get r(o) = Q: Dow r(x) has to he
+identically 0 since otherwise r (x > would havg the root a apd be of
+lower degree thap f (x ): SO g ( x ) ia divisible by f (x )! Thia also shows
+the uniqueness of f (x ). If f (x ) were not irreducible, one of the factors
+wopld have to vanish for x = a contradicting again the choice of f ( y ).
+We consider now the subset E0 of the following elements
+8 of E:26
+8 = g(a) = CO + cla + c2a2 + . . . + CnTlanel
+where g(x) is a polynomial in F of degree less than n (n being the de-
+gree of f(x)). This set l, is closed under addition and multiplication.
+The latter may be verified as follows:
+If g (x ) and h (x ) are two polynomials of degree less than n we
+put g(x)h(x) = q(x)f(x) + r(x) and hence g(a)h(a)
+= r(a).
+Finally we see that the constants cO, c 1, . . , cr,i are uniquely deter-
+mined by the element 8. Indeed two expressions for the same 0 would
+lead after subtracting to an equation for a of lower degree than n.
+We remark that the interna1 structure of the set EO does not de-
+pend on the nature of a but only on the irreducible f (x ). The knowledge
+of this polynomial enables us to perform the operations of addition and
+multiplication in our set EO. We shall see very soon that E, is a field;
+in fact, EO is nothing but the field F(a). As soon as this is shown we
+have at once the degree, ( F (a) /F), determined as n, since the space
+F(a) is generated by the linearly independent 1, a, a2, . . . , an-l.
+We shall now try to imitate the set EO without having an exten-
+sion field E and an element a at our disposal. We shall assume only
+an irreducible polynomial
+f(x) = x” + a n-l xn-i + . . . + aO
+as given.
+We Select a symbol
+6
+and let E, be the set of a11 forma1
+polynomials
+g(5‘) = CO + c,c + . . + cnJy-l
+of a degree lower than n. This set forms a group under
+addition. We now introduce besides the ordinary multiplication27
+a new kind of multiplication of two elements g (5) and h (4) of E i
+denoted
+by g ([) x h (5). It is defined as the remainder r (6) of the
+ordinary product g (6) h(c) un d er d ivision by f (4‘ ). We first remark
+that any product of m terms gi( c), gz( t), . . . , g,( 0 is again the re-
+mainder of the ordinary product
+g i( 5) g,( 5). . . g,( 5). This is true by
+definition for m = 2 and follows for every m by induction if we just
+prove
+the easy lemma: The remainder of the product
+(of two polynomials) is the remainder of the product
+polynomials. This fact shows
+that our new product
+commutative and also that the new product
+Will coincide with the old product
+of two remainders
+of these two
+is associative and
+g i( 4) x g,( 4) x . . . x g I[)
+g i( 5) g,( 6). . . g,( 6) if the latter
+does not exceed n in degree. The distributive law for our multiplication
+is readily verified.
+The set E i contains our field F and our multiplication in E, has
+for F the meaning of the old multiplication. One of the polynomials of
+E, is ç:. Multiplying it i-times with itself, clearly Will just lead to ti
+as long, as i < n. For i = n this is not any more the case since it
+leads to the remainder of the polynomial 5”.
+This remainder is
+5” - f(t) = - a,- “-‘- anJn-*-
+. . . - a,.
+We now give up our old multiplication altogether and keep only
+the new one; we also change notation, using the point (or juxtaposition)
+as symbol
+for the new multiplication.
+Computing in this sense
+c, + Cl[ + c*p + . . . + c,-lp-l
+Will readily lead to this element, since a11 the degrees28
+involved are below n. But
+5” = - anyl[n-l- a,-2[n-2- . . . - a0.
+Transposing we see that f(ç) = 0.
+We thus have constructed a set E, and an addition and multipli-
+cation in E r that already satisfies most of the field axioms. E r contains
+F as subfield and 5‘ satisfies the equation f (5) = 0. We next have to
+show:
+If g ( 6)  0 and h ( .) are given elements of E r, there is
+an element
+X(l> = x, + x1( + . . . + X,J--1
+in E, such that
+g(Ç) *X(t) = h(t).
+T O prove it we consider the coefficients xi of X (6) as unknowns and
+compute nevertheless the product on the left side, always reducing
+higher powers of [ to lower ones.
+The result is an expression
+L, + LJ + . . + L,-, (““where
+each Li is a linear combination of
+of the xi with coefficients in F. This expression is to be equal to
+h(t); this leads to the n equations with n unknowns:
+L, = b,, L, = b,, . . . > L,-, = b,-,
+where the bi are the coefficients of h(E). This system Will be soluble
+if the corresponding homogeneous equations
+L, = 0, L, = 0, * . . > L,-r = 0
+bave
+only the trivial solution.
+The homogeneous problem
+would occur if we should ask for
+the set of elements X(Q) satisfying g (5) . X ( 6) = 0. Going back
+for a moment to the old multiplication this would mean that the
+ordinary product g( 6) X (6) has the remainder 0, and is29
+therefore divisible by f(t). According to the lemma, page 24, this is
+only possible for X (6) = 0.
+Therefore E, is a field.
+Assume now that we have also our old extension E with a root
+a of f(x), leading to the set E,. We see that E, has in a certain sense
+the same structure as E 1 if we map the element g (6) of E 1 onto the
+element g(a) of EO. This mapping Will have the property that the image
+of a sum of elements is the sum of the images, and the image of a
+product is the product of the images.
+Let us therefore define: A mapping u of one field onto another
+which is one to one in both directions such that
+o(a+~) = o(a) + CT(~) and O(U.@) = o(a). o(p) is called an
+isomorphism. If the fields in question are not distinct - i.e., are both
+~-
+the same field - the isomorphism is called an automorphism. Two
+fields for which there exists an isomorphism mapping one on another
+are called isomorphic. If not every element of the image field is the image
+under o of an element in the first field, then 0 is called an isomorphism
+of the first field into the second. Under each isomorphism it is clear
+that o(O) = 0 and o( 1) = 1.
+We see that E, is also a field and that it is isomorphic to E,.
+We now mention a few theorems that follow from our discussion:
+THEOREM 7. (Kronecker). If f (x ) is a polynomial in a field F,
+there exists an extension E of F in which f(x) has a root.30
+Proof: Construct
+an extension field in which an irreducible
+factor of f ( x ) has a root.
+THEOREM 8. Let o be an isomorphism mapping a field F on a
+f ~~
+i e l d F’ Let f (x ) be an irreducible polynomial in F and f ’ (x ) the cor-
+responding
+-~ polynomial in F ’ . If E = F (B) and E ’ = F ’ (@‘) are exten-
+sions
+of F and F’ , respectively, where f(p) = 0 in E and f ’ ( p ‘) = 0 in E’ ,
+~~
+then o’ cari be extended to an isomorphism between E and E ’ .
+Proof: E and E’ are both isomorphic to EO.
+D. Splitting Fields.
+If F, B and E are three fields such that F C B C E, then we
+shall refer to B as an intermediate field.
+If E is an extension of a field F in which a polynomial p(x) in F
+cari be factored into linear factors, and if p(x) cari not be
+SO
+factored
+in any intermediate field, then we cal1 E a splitting field for p(x). Thus,
+if E is a splitting field of p(x), the roots of p(x) generate E.
+A splitting field is of finite degree since it is constructed by a
+finite number of adjunctions
+of algebraic elements, each defining an
+extension field of finite degree. Because of the corollary on page 22,
+the total degree is finite.
+THEOREM
+9. If p(x) is a polynomial in a field F, there exists
+-~~
+a ~~
+splitting field E of p(x).
+We factor p (x ) in F into irreducible factors
+f,(x) . . .
+f*(x) = p(x). If each of these is of the first
+degree then F itself is the required splitting field. Suppose
+then that fi(x) is of degree higher than the first. By31
+Theorem 7 there is an extension Fr of F in which f r( x ) has a root.
+Factor each of the factors f r( x), . . . , fr( x ) into irreducible factors in
+Fr and proceed as before. We finally arrive at a field in which p (x)
+cari be split into linear factors. The field generated out of F by the
+roots of p(x) is the required splitting field.
+The following theorem asserts that up to isomorphisms, the
+splitting field of a polynomial is unique.
+THEOREM 10. Let (T be an isomorphism mapping the field F on
+the field F’ , Let p (x ) be a polynomial in F and p ’ (x ) the polynomial
+~~
+in F ’ with coefficients corresponding to those of p (x ) under 0. Finally,
+--~
+let E be a splitting field of p(x) and E’ a splitting field of p’ (x).
+~-
+Under
+these conditions the isomorphism o cari be extended to an
+~~
+isomorphism between E and E’ .
+If f(x) is an irreducible factor of p(x) in F, then E contains a
+root of f( x ). For let p (x )=(x-a J (x-a, ) . . (x-a .) be the splitting of
+p(x) in E. Then (x-ar)(x-a,).
+. .(x-as) = f(x) g(x). We consider
+f(x) as a polynomial in E and construct
+inwhichf(a)
+the extension field B = E(a)
+= 0. Then(a-aI).(a-a2)...:(a-as)
+= f(a).g(a)
+and a-ai being elements of the field B cari have a product equal to 0
+only if f’or one of the factors, say the first, we have a-a1 = 0. Thus,
+a = al, and a1 is aroot of f(x).
+Now in case a11 roots of p(x) are in F, then E = F and p(x)
+cari be split in F. This factored form has an image in F’ which is a
+splitting, of p’ (x), since the isomorphism o preserves a11 operations
+of addition and multiplication in the process of multiplying out the
+= 0factors of p(x) and collecting to get the original form. Since p ’ (x)
+cari be split in F’ , we must have F ’ = E ’ . In this case, o itself is
+the required extension and the theorem is proved if a11 roots of p(x)
+are in F.
+We proceed by complete induction. Let us suppose the theorem
+proved for a11 cases in which the number of roots of p(x) outside of F
+is less than n > 1, and suppose that p (x ) is a polynomial having n
+roots outside of F. We factor p (x ) into irreducible factors in F;
+p(x) = f,(x) fJx) . . f,(x). Not a11 of these factors cari be of
+degree 1, since otherwise p (x ) would split in F, contrary to assump-
+tion. Hence, we may suppose the degree of f 1( x) to be r > 1. Let
+f’,(x).f(x) . . . f;(x) = p’(x) be the factorization of p’(x) into
+the polynomials corrrespondng to f 1( x ) , . . . , fm( x ) under O. fi (x )
+is irreducible in F ’ , for a factorization of fi (x) in F ’ would induce 1)
+under 0-l a factorization of f,(x), which was however taken to
+be irreducible.
+By Theorem 8, the isomorphism o cari be extended to an isomor-
+phism ol, between the fields F(a) and F ’ (a’ ).
+Since F C F(a), p(x) is a polynomial in F(U) and E is a
+splitting field for p(x) in F(a). Similarly for p ’ (x). There are now
+less than n roots of p (x ) outside the new ground field F (a). Hence
+by our inductive assumption o1 cari be extended from an isomorphism
+between F(a) and F ’ (a ’ ) to an isomorphism o2 between E and E ’ .
+Since u, is an extension of (T, and o2 an extension of o,, we conclude
+u2 is an extension of u and the theorem follows.
+1)
+See page 38 for the definition of (2-l.33
+Corollary.
+-~ If p(x) is a polynomial in a field F, then any two
+splitting
+fields for p (x ) are isomorphic.
+--
+This follows from Theorem 10 if we take F = F ’ and o to be the
+identity mapping,
+i.e., o(x) = x.
+As a consequence of this corollary we see that we are justified
+in using the expression ‘?he splitting field of p(x)” since any two
+differ only by an isomorphism. Thus, if p (x ) has repeated roots in one
+splitting field, SO also in any other splitting field it Will have repeated
+roots.
+without
+The statement “p(x) has repeated roots” Will be significant
+reference to a particular splitting field.
+E. Unique
+Decomposition of Polynomials
+---
+into Irreducible Factors.
+THEOREM
+11. If p(x) is a polynomial in a field F, and if
+--
+p(x)
+= pi(x).p,(x)... . .p,(x) = qi(x).q*(x)... . . qs(x) are two
+~-
+factorizations of p(x) into irreducible polynomials each of degree at
+least
+one, then r = s and after a suitable change in the order in which
+~-
+the q’s are written, p,(x) = ciqi(x), i = 1,2,. . ,r, and ci 6 F.
+~-
+Let F(a) be an extension of F in which p i(a) = 0. We may
+suppose
+the leading coefficients of the pi( x ) and the qi( x ) to be 1, for,
+by factoring out a11 leading coefficients and combining, the constant
+multiplier on each side of the equation must be the leading coefficient
+of p (x ) and hence cari be divided out of both sides of the equation.
+Since 0 = ~~(a).~~(a). . . . .~,(a) = p(a) = si(a).. . . .4,(a) and
+since a product
+of elements of F(a) cari be 0 only if one of these is 0,
+it follows that one of the qi( a), say qi( a), is 0. This gives (see page
+25)p,(x) = si(x). Thus~,(x).~,(x).....~,(x)
+= Pdx).q,(x). . . .q,(x) or34
+pi(x).[p,(x)..
+. . .p,(x) - q*(x).. . . .qs(x)] = 0. Since the product
+of two polynomials is 0 only if one of the two is the 0 polynomial, it
+follows that the polynomial within the brackets
+is 0
+SO
+that
+p,(x) . . . .p,(x) = q*(x). . .: q.(x). If we repeat the above argument
+r times we obtain p,(x) = si(x), i = 1,2,. . , r. Since the remaining
+q’s must have a product 1, it follows that r = s.
+F. Group
+Characters.
+-~--
+-
+If G is a multiplicative group, F a field and o a homomorphism
+mapping G into F, then o is called a character of G in F. By homomor-
+phism is meant a mapping u such that for a, fi any two elements of G,
+o(a).a(B) = a(a.@)ando(a)
+f Oforanya.
+(If o(a) = 0 for one element a, then o(x) = 0 for each x t G, since
+o( ay) = o(a). o(y) = 0 and ay takes a11 values in G when y assumes
+a11 values in G).
+The characters or, 02,. . . , onare called dependent if there exist
+elements a r, a,, . . . , a,, not a11 zero in F such that
+a,o,(x)
++ a202(x) + . . . + anon = 0 for each x t G. Such a de-
+pendence relation is called non-trivial. If the characters are not
+dependent they are called independent.
+THEOREM 12. If G is a group and or, u2,. . . , on are n mutu-
+ally distinct characters of G in a field F, then oi, 02,. . . , on
+are independent.
+One character cannot be dependent, since a rcr( x) = 0 implies
+a1 = 0 due to the assumption that or(x) f 0. Suppose n > 1.35
+We make the inductive assumption that no set of less than n distinct
+characters is dependent. Suppose now that
+aru, i a,o,(x> + .
+. + angn( x) = 0 is a non-trivial dependence
+between the u’s. None of the elements ai is zero, else we should have
+a dependence between less than n characters contrary to our induc-
+tive assumption. Since or and un are distinct, there exists an element
+a in G; such that or (a) f o”(a). Multiply the relation between the
+u’s b y n
+(*)
+a-rW e obtain a relation
+bru,(x) + . . . + b,.r on-r(x) + o,(x) = 0, bi = air ai f 0.
+Replace in this relation x by ax. We have
+b,o,(a)ol(x)
++ . . + b,-, un., (a>un.,(x> + un(a (x> = 0,
+o r a, ( a j’b,u,(a)u, ( x ) + . +
+U,(X)
+= 0.
+Subtracting the latter from (*) we have
+(**> [b, - un (a)-‘blul
+The c’oefficient
+(a>la,(x) t - .
++ cn.lun.l
+(x) =
+0
+.
+of ur (x ) in this relation is not 0, otherwise we should
+h a v e b, = u, (a)-‘b,al
+(a),
+SO
+that
+q, (a)b, = blo,(a)
+= u,(a)b,
+and since b, f 0, we get a,( a) = ur (a) contrary to the choice of a.
+Thus, (* * ) is a non-trivial dependence between u r, g2, . ,v”- 1 which
+is contrary to our inductive assumption.
+Corollary. If E and E’ are two fields, and q , u2, . . , un are n
+mutually distinct isomorphisms mapping E into E ’ , then u, , . , u,
+are independent. (Where “independent”
+again means there exists no
+non-trivial dependence a ru r (x ) + . + anun (x ) = 0 which holds for
+every x 6 E).
+This follows from Theorem 12, since E without the 0 is a group36
+and the u’s defined in this group are mutually distinct characters.
+If oi > a2 > . . . , u, are isomorphisms of a field E into a field E’ ,
+then each element a of E such that o*(a) = o,(a) = . . . = on(a)
+is called a fixed point of E under oi , 02, . . . , o,., . This name is
+chosen because in the case where the u’s are automorphisms and ui
+is the identity, i.e., u1 (x) = x, we have ui (x) = x for a
+fixed point.
+Lemma. The set of fixed points of E is a subfield of E. We
+shall cal1 this subfield the fixed field.
+For if a and b are fixed points, then
+ui(a
+-1 b) = u,(a) + u,(b)
+uj(a.b)
+= ui(a).ui(b)
+= uj (a) + oj (b) = uj (a + b) and
+= uj (a).uj(b) = uj (a.b).
+Finally from u,(a) = aj (a) we have (uj(a))-’ = (u,(a))-’
+= ~,(a-‘) = uj ( a - ‘ ) .
+Thus, the sum and product of two fixed points is a fixed point, and
+the inverse of a fixed point is a fixed point. Clearly, the negative of a
+fixed point is a fixed point.
+THEOREM 13. If cri,. . . >un are n mutually distinct isomorphisms
+of a field E into a field E’ , and if F is the fixed field of E, then
+(E/F:) L
+> n.
+Suppose to the contrary that (E/F) = r < n. We shall show that
+we are led to a contradiction. Let w i, o 2, . . . , o, be a generating sys-
+tem of E over F. In the homogeneous linear equations37
+ul(ol)xl + u*(w1)x2 + . . . + u,(wl)x, = 0
+OI(OZ)XI
++ u2(o*)x2 + . . . + u,(o*)xn = 0
+UI(W,)XI + u*(or)x2 + . . . + un(o,)xn
+there are more unknowns than equations
+SO
+= 0
+that there exists a non-
+trivial solution which, we may suppose, x r, x 2, . . . ,x, denotes.
+For
+any element a in E we cari find ar, a2,. . . , a, in F such that
+a = aIci>, f . . . + a,o,. We multiply the first equation by o 1 ( a 1 ),
+the second by o1 (a ,J, and
+SO
+on. Using that ai 6 F, hence that
+ol(ar) = oj (ai)and also t h a t oj(ai)
+oj(ai) = oj(aiwi),
+we obtain
+ol(a,wI)x, + . . . + on(a,o,)x n = 0
+oI(ar~,)xl + . . . + on(arWr)x n = 0 .
+Adding
+these last equations and using
+oi(a,o,) + oi(a2W2) + . . . + oi(aro,)
+= oi(a,o,
++ . . . + aru,) = ai(Q)
+we obtain
+o,(a)x, + o,(a>x, + . . . + un(a)xn = 0.
+This, however, is a non-trivial dependence relation between or, 02, . . . , on
+which cannot
+exist according to the corollary of Theorem 12.
+Ciorollary. If or, u2, . . . , cr,, are automorphisms of the field E, and
+-
+F is the fixed field, then (E/F) >
+- n.
+If F is a subfield of the field E, and 0 an automorphism of E, we
+shall say that u leaves F fixed if for each element a of F, o(a) = a.38
+If o and r are two automorphisms
+briefly ur is an automorphism,
+of E, then the mapping o( r( x)) written
+as the reader may readily verify.
+[E.g., u~(x.Y) =o(r(~.~)) = o(r(~>.~(y)> = a(~(x))~o(s(y))l.
+We shall cal1 UT the product of o and r. If o is an automorphism
+(o(x) = y), then we shall cal1 0-l the mapping of y into x, i.e.,o-‘(y)
+the inverse of o. The reader may readily verify that o-r is an automor-
+phism. The automorphism 1 (x ) = x shall be called the
+unit
+automorphism.
+--
+--
+Lemma. If E is an extension field of F, the set G of automorphisms
+-~
+which leave F fixed is a group.
+The product of two automorphisms
+which leave F fixed clearly
+leaves F fixed. Also, the inverse of any automorphism in G is in G.
+The reader Will observe that G, the set of automorphisms
+which
+leave F fixed, does not necessarily have F as its fixed field. It may be
+that certain elements
+in E which do not belong to F are left fixed by
+every automorphism which leaves F fixed. Thus, the fixed field of G
+may be larger than F.
+G. Applications
+and Examples to Theorem 13.
+Theorem 13 is very powerful as the following
+examples show:
+1) Let k be a field and consider the field E = k (x ) of a11
+rational
+functions
+of the variable x. If we map each of the functions
+f (x ) of E onto f(L) we obviously
+obtain an automorphism of E. Let us
+X
+consider
+the following six automorphisms
+where f (x ) is mapped onto
+f (x ) (identity), f ( l-x), f (), f (l-i), f ( ) and f (5) and cal1 F the
+= x39
+fixed point field. F consists of a11 rational functions satisfying
+f ( x ) = f ( l - x ) = f(i) = f(l-) = f(A) = f(.
+(1)
+It suffices to check the first two equalities, the others being conse-
+quences. The function
+1 = I(x) = (x2 - x+1j3
+x*(x-l)*
+belongs to F as is readily seen. Hence, the field S = k (1) of a11
+(2)
+rational functions of 1 Will belong to F.
+We contend: F = S and (E/F) = 6.
+Indeed, from Theorem 13 we obtain (E/F) 1 6. Since S C F it
+suffices
+find some
+to prove (E/S) <
+- 6. Now E = S(x). It is thus sufficient to
+6-th degree equation with coefficients in S satisfied by x.
+The following one is obviously satisfied;
+(x2 - x+1)3 -1.x2(x-1)2
+= 0.
+The reader Will find the study of these fields a profitable exer-
+cise. At a later occasion he Will be able to derive a11 intermediate fields.
+2 ) LetkbeafieldandE
+= k(x,,x2,...,x,)thefieldofall
+rational functions of n variables x1, x2, . . . , xn. If (vi , v2, . . . , Vu ) is a
+permutation of (1,2, . . . , n) we replace in each function f (x 1, x *, . . . , xn)
+of E the variable x, by x
+Vl ’
+x2 by x 1/2’.
+. ’
+xn by x1/ . The mapping of E
+n
+onto itself obtained in this way is obviously an automorphism and we
+may construct n ! automorphisms in this fashion (including the identity).
+Let F be the fixed point field, that is, the set of a11 so-called
+“symmetric functions.” Theorem 13 shows that (E/F) > - n ! . Let us in-
+troduce the polynomial:
+(3) f(t) = (t-xr)(t-x2).
+. . (t-x,) = t” + a itn-i
++ . + an40
+wherear = - (x1 + x2 + . . . + x,); a2 .: + (x1x2 + x1x3 + . . . + xn-rxn)
+and more generally ai is ( - 1)’ times the sum of a11 products of i differ-
+erent variables of the set x1, x2, . . . , xn. The functions a,, a*, . . . , an
+are called the elementary symmetric functions and the field
+S = k(a,,a,,..., an ) of a11 rational functions of a,, a2, . . . , ati is
+obviously a part of F. Should we suceed in proving ( E/S ) < - n ! we
+would have shown S = F and (E/F) = n ! .
+We construct to this effect the following tower of fields:
+S = S, c SnT1 c Snm2 . . . c S, c S, = E
+by the definition
+( 4 ) sn = s; si = s(xi+l ‘xi+*‘...‘xn)
+= si+l (xi+l 1.
+It would be sufficient to prove ( Si-r/S, ) < - i or that the generator xi
+for Si-r out of S satisfies an equation of degree i with coefficients
+in S, .
+Such an equation is easily constructed. Put
+(5) Fi (t> =
+Fi+, (t)
+f(t)
+(t-xi+l )(t-Xi+* ). . . (t-x,) = (t-xi+l )
+and Fn ( t ) = f ( t ). Performing the division we see that Fi (t ) is a
+polynomial in t of degree i whose highest coefficient is 1 and whose
+coefficients are polynomials in the variables
+a1 , azF . . . , a,, and xi+r , xi+2 , . . . , x,. Only integers enter as coefficients
+in these expressions. Now xi is obviously a root of Fi (t ) = 0.
+Nowletg(x,,x,,...,
+xn) be a polynomial in x1,x2,. . . , xn.
+Since Fr ( xr ) = 0 is of first degree in xr , we cari express x, as a
+polynomial of the a, and of x2, x3, . . . , xn . We introduce this expression
+ing(x,,x,,..., xn). Since F, (x2 ) = 0 we cari express x2 or higher41
+powers as polynomials in x3, . . . , xn and the ai. Since F, ( xg) = 0
+we cari express xi and higher powers as polynomials of x4, x5,. . . , x,,
+and the ai. Introducing these expressions in g( xi, x2,. . . , xn) we see
+that we cari express it as a polynomial in the xr, and the ar, such that
+the degree in xi is below i. S O g( xi, x2, . . . , xn) is a linear combination
+of the following n ! terms:
+Vl
+(6)
+x1
+x2
+V2
+. . . xn
+Un
+where each vi 5 i - 1.
+The coefficients of these terms are polynomials in the ai . Since the
+expressions (6) are linearly independent in S (this is our previous
+result), the expression is unique.
+This is a generalization of the theorem of symmetric functions in
+its usual form. The latter says that a symmetric polynomial cari be
+written. as a polynomial in ai, a,, . . . , a,,. Indeed, if g(x,, . . . ,x,) is
+symmetric we have already an expression as linear combination of the
+terms (,6) where only the term 1 corresponding to vi = v2 = . . . = v,, = 0
+has a coefficient  0 in S, namely, g( xi,. . . , x,.,). S O g( xi, x2,. . . , xn)
+is a polynomial in a,, a2,. . . , a,.
+Hut our theorem gives an expression of any polynomial, symmetric
+or not.
+H. Normal Extensions.
+An extension field E of a field F is called a normal extension if
+the group G of automorphisms of E which leave F fixed has F for its
+fixed field, and (E/F) is finite.
+Mthough
+the result in Theorem 13 cannot
+be sharpened in general,42
+there is one case in which the equality sign Will always occur, namely,
+in the case in which CT~, 02, . . . , an is a set of automorphisms which
+form a group. We prove
+THEOREM 14. If ol> g2>. . . , o,, is a group of automorphisms of a
+field E and if F is the fixed field of g1 ,u*,. . . , on, then (E/F) = n.
+-
+-
+Ifa,,o,,...,un is a group, then the identity occurs, say, u1 = 1.
+The fixed field consists of those elements x which are not moved by
+any of the U’S, i.e., ai(x) = x, i = 1,2, . . . n. Suppose that (E/F ) > n.
+Then there exist n + 1 elements al, a*, . . . , a,,, of E which are
+linearly independent with respect to F. By Theorem 1, there exists a
+non-trivial solution in E to the system of equations
+x1 q (a1 > + x2 q (a, > + . . . + xn+, q (a,,, > = 0
+(’ >
+x1 u2 (a1 > + x2 o2 (a2 > + . . . + xn+l a2 ( a,+l > = 0
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+xlun(al) + x2un(a2) + . . . + xn+lun(an+l> = 0
+We not.e that the solution cannot lie in F, otherwise, since u1 is the
+identity, the first equation would be a dependence between a,, . . . , a n+l .
+Among a11 non-trivial solutions x1, x2, . . . , x,+~ we choose one
+which has the least number of elements different from 0. We may sup-
+pose this solution to be al, a*, . . . , a,, 0, . . . , 0, where the first r
+terms are different from 0. Moreover, r  1 because a, u1 (a1 ) = 0
+implies a1 = 0 since u1 (a, ) = a1 f 0. Also, we may suppose ar = 1,
+since if we multiply the given solution by a;’ we obtain a new solution
+in which the r-th term is 1. Thus, we have43
+(*>
+alUi(al
+>
++
+a2Ui(a2 >
++
+a-.
++
+ar.,ui(a, l
+>
++
+oi(ar>
+=
+0
+for i = 1,2, . . . , n. Since ai, . . . , ar i cannot a11 belong to F, one of
+these, say a 1, is in E but not in F. There is an automorphism ok for
+which o,,( a, )   a1 . If we use the fact that oi, 02, . . . , o,, form a group,
+we see ok. gi, ok* 02,. . . ,ak. an is a permutation of Oi,oz,. .
+- tu,.
+Applying ok to the expressions in (*) we obtain
+Ukk(a,).UkQj(al
+> + *f. + ~~(ar-l)-~~Qj(a,-l) +
+for j = ‘l,2,. . . , n,
+SO
+(**> Uk(al >Ui(al> +
+@kUj(ar)
+= 0
+that from okaj = (T.1
+.
+..+ Uk(ar-l)Ui(a,-l
+> + Ui(a, > = 0
+and if we subtract ( * * ) from ( * ) we have
+[a, -
+uk(al >l. Qi(Q1 > + . .. + [ar-l - uk(arel >l~i(Qr-l) = 0
+which is a non-trivial solution to the system (’ ) having fewer than r
+elements different from 0, contrary to the choice of r.
+Corollary 1. If F is the fixed field for the finite group G, then
+-
+each automorphism u that leaves F fixed must belong to G.
+(E/F) = order of G = n. Assume there is a u not in G. Then F
+would remain fixed under the n + 1 elements consisting of u and the
+elements of G, thus contradicting the corollary to Theorem 13.
+Corollary 2. There are no two finite groups G, and G, with the
+same
+fixed field.
+This follows immediately from Corollary 1.
+If f(x) is a polynomial in F, then f(x) is called separable if its
+irreducible factors do not have repeated roots. If E is an extension of44
+the field F, the element a of E is called separable if it is root of a
+separable polynomial f(x) in F, and E is called a separable extension
+if each element of E is separable.
+THEOREM 15. E is a normal extension of F if and only if E is
+the
+splitting
+field of a separable polynomial p(x) in F.
+-
+-
+Sufficiency. Under the assumption that E splits p (x) we prove
+that E is a normal extension of F.
+If a11 roots of p(x) are in F, then our proposition is trivial, since
+then E = F and only the unit automorphism leaves F fixed.
+Let us suppose p(x) has n > 1 roots in E but not in F. We make
+the inductive assumption that for a11 pairs of fields with fewer than n
+roots of p(x) outside of F our proposition holds.
+Let p(x) = pr(x).p,(x)..
+. . . pr( x) be a factorization of p(x)
+into irreducible factors. We may suppose one of these to have a degree
+greater than one, for otherwise p(x) would split in F. Suppose deg
+p,(x) = s > 1. Let ai be a root of p,(x). Then (F(a, )/F) = deg p,(x) = s.
+If we consider F (ai ) as the new ground field, fewer roots of p( x) than
+n are outside. From the fact that p(x) lies in F(a, ) and E is a split-
+ting field of p(x) over F( a1 ), it follows by our inductive assumption
+that E is a normal extension of F(a, ). Thus, each element in E which
+is not in F(a, ) is moved by at least one automorphism which leaves
+F(a, ) fixed.
+p (x) being separable, the roots ai ,aZ, . . . , as of pi (x) are a
+distinct elements of E. By Theorem 8 there exist isomorphisms45
+Ul>ff2>. f *, os mappingF(a,)onF(a,),
+respect.ively,
+a1,a2,...,as
+F(a,),...,F(a,),
+which are each the identity on F and map or on
+respectively. We now apply Theorem 10. E is a splitting
+field of p(x) in F(a, ) and is also a splitting field of p(x) in F(ai ).
+Hence, the isomorphism oi, which makes p( x ) in F ( a1 ) correspond to
+the same p(x) in F( ai ), cari be extended to an isomorphic mapping of
+E onto :E, that is, to an automorphism of E that we denote again by oi.
+Hence, u1,02,. . . , os are automorphisms of E that leave F fixed and
+map a1 ont0 a1,a2,. . . a,.
+Now let 8 be an element that remains fixed under a11 automor-
+phisms of E that leave F fixed. We know already that it is in F (a 1 )
+and hence has the form
+8
+= CO +
+CIaI
++
+C2 a: +
+. . . + csml
+as-l
+where the ci are in F. If we apply ui to this equation we get, since
+Ui(0)
+= 8:
+8 = C,
++
+CIai
++
+C2af +
+. . . + Csml
+a:-’
+The polynomial es-r xs-1 + csd2x s-z + . . . + crx + (c Cl - 0)
+has therefore the s distinct roots or, 02, . . . , as. These are more than
+its degree. S O a11 coefficients of it must vanish, among them c 0 - 8.
+This shows 8 in F.
+Necessity.
+If E is a normal extension of F, then E is spiitting
+field of a separable polynomial p(x). We first prove the
+Lemma. If E is a normal extension of F, then E is a separable
+-~
+extension of F. Moreover any element of E is a root ofan equation over
+F which splits completely in E.46
+Let (5, , u2, . . . , o, be the group G of automorphisms of E whose
+fixed field is F. Let a be an element of E, and let Q, a2, a3, . . . ,cr be
+the set of distinct elements in the sequence oi( a), O~(U), . . . , os(c).
+Since G is a group,
+Uj(Qi) = Uj(c7,(U))
+= ajo )
+= a,(u) = a,.
+Therefore, the elements u,u2, . . . , cr are permuted by the automorphisms
+of G. The coefficients of the polynomial f(x) = (~-a)(
+X - U
+*). . . (xa,)
+are left fixed by each automorphism of G, since in its factored form the
+factors of f(x) are only permuted. Since the only elements of E which
+are left fixed by a11 the automorphisms of G belong to F, f(x) is a
+polynomial in F. If g(x) is a polynomial in F which also has a as root,
+then applying the automorphisms of G to the expression g (u ) = 0 we
+obtain g(a,) = 0,
+that the degree of g(x) - > s. Hence f(x) is irre-
+ducible, and the lemma is established.
+SO
+T O complete the proof of the theorem, let or, 02,. . . , ut be a gen-
+erating system for the vector space E over F. Let fi(x) be the separable
+polynomial having oi as a root. Then E is the splitting field of
+p ( x ) = f,(x).f,(x).....f,(x).
+If f(x) is a polynomial in a field F, and E the splitting field of
+f (x ), then we shall cal1 the group of automorphisms of E over F the
+group of the equation f(x) = 0. We corne now to a theorem known in
+-~
+algebra as the Fundamental Theorem of Galois Theory which gives the
+relation between the structure of a splitting field and its group
+of automorphisms.
+THEOREM 16. (Fundamental Theorem). If p(x) is a separable
+polynomial in a field F, and G the group of the equation p(x) = 0
+where
+E
+-
+- is the -47
+splitting field of p(x), then: (1) Each intermediate field, B,is the
+fixed field for a subgroup G, of G, and distinct subgroups have dis-
+tinct fixed fields. We say B and G, “belong” to each other. (2) The
+intermediate field B is a normal extension of F if a,nd only if the sub-
+group G, is a normal subgroup of G. In this case the group of automor-
+phisms of B which leaves F fixed is isomorphic to the factor group
+(G/G ). - (3) For each intermediate field B, we have (B/F) = index of
+G, and (E/B) = order of G,.
+The first part of the theorem cornes from the observation that E
+is splitting field for p(x) when p(x) is taken to be in any intermediate
+field. Hence, E is a normal extension of each intermediate field B,
+SO
+that B is the fixed field of the subgroup of G consisting of the automor-
+phisms which leave B fixed. That distinct subgroups have distinct fixed
+fields is stated in Corollary 2 to Theorem 14.
+Let B be any intermediate field. Since B is the fixed field for
+the subgroup G, of G, by Theorem 14 we have (E/B) = order of G,.
+Let us cal1 o(G) the order of a group G and i(G) its index. Then
+o(G) =: o(Ga But (E/F) = o(G), and (E/F) = (E/B)*(B/F)
+from which (B/F) = i (G, ), which proves the third part of the theorem.
+The number i( G, ) is equal to the number of left cosets of G,.
+The elements of G, being automorphisms of E, are isomorphisms of B;
+that is, they map B isomorphically into some other subfield of E and
+are the identity on F. The elements of G in any one coset of G, map B
+in the same way. For let U. a1 and o. o2 be two elements of the coset
+uG,. Since or and o2 leave B fixed, for each a in B48
+we have (ror( a ) = a( cz ) = oo2( a ). Elements of different cosets give
+different isomorphisms,
+for if o and r give the same isomorphism,
+o(a) = r(c) for each a in B, then o-‘r(a) = a for each a in B. Hence,
+dT == al> where or is an element
+rG,
+of G,. But then T = oo, and
+:= oorGs= aG, SO that o and r belong to the same coset.
+Each isomorphism
+automorphism belonging
+of B which is the identity on F is given by an
+to G. For let Q be an isomorphism mapping B
+on B’ and the identity on F. Then under c, p(x) corresponds
+to p(x),
+and E is the splitting field of p(x) in B and of p(x) in B ’ . By
+Theorem 10, a cari be extended
+to an automorphism o’ of E, and since
+0’ leaves F fixed it belongs to G. Therefore,
+isomorphisms
+the number of distinct
+of B is equal to the number of cosets of G, and is there-
+fore equal to (B/F).
+The field aB onto which g maps
+responding
+precisely
+group, since the elements
+B has obviously
+oGso-1 as cor-
+of aB are left invariant by
+this group.
+If 13 is a normal extension of F, the number of distinct automor-
+phisms of B which leave F fixed is (B/F) by Theorem 14. Conversely,
+if the number of automorphisms
+because
+is (B/F) then B is a normal extension,
+if F’ is the fixed field of a11 these automorphisms,
+then
+F C F’ (1 B, and by Theorem 14, (B/F ‘) is equal to the number of
+automorphisms
+(B/F’)(F’/F)
+in the group, hence (B/F ‘) = (B/F). From ( B/F) =
+we have (F’/F)
+= 1 or F = F’. Thus, B is a normal
+extension of F if and only if the number of automorphisms
+of B is (B/F).
+B is a normal extension of F if and only if each isomorphism
+of
+B into E is an automorphism of B. This follows from the fact that each
+of the above conditions
+are equivalent to the assertion that there are49
+the same numberof isomorphisms and automorphisms. Since, for each
+u, B = aB is equivalent to oG,o -* C G,, we cari finally say that B is
+a normal extension of F and only if G, is a normal subgroup of G.
+As we have shown, each isomorphism of B is described by the
+effect of the elements of some left coset of G,. If B is a normal exten-
+sion these isomorphisms are a11 automorphisms, but in this case the
+cosets are elements of the factor group (G/G, ). Thus, each automor-
+phism of B corresponds uniquely to an element of ( G/G, ) and con-
+versely. Since multiplication in ( G/G, ) is obtained by iterating the
+mappings, the correspondence
+is an isomorphism between (G/G, ) and
+the group of automorphisms of B which leave F fixed. This completes
+the proof of Theorem 16.
+1. Finite F i e l d s .
+It is frequently necessary to know the nature of a finite subset
+of a field which under multiplication in the field is a group. The
+answer to this question is particularly simple.
+- THEOREM 17. If S is a finite subset (f 0 ) of a field F which
+is a group under multiplication in F, then S is a cyclic group.
+~~
+The proof is based on the following lemmas for abelian groups.
+- L,emma 1. If in an abelian group A and B are two elements of
+orders a and b, and if c is the least common multiple of a and b, then
+~-
+there is an element C of order c in the group.
+~~50
+Proof: (a) If a and b are relatively prime, C = AB has the re-
+quired order ab. The order of C a = B” is b and therefore c is divisible
+by b. Similarly it is divisible by a. Since Ceb = 1 it follows c = ab.
+(b) If d is a divisor of a, we cari find in the group an element of
+order d. Indeed Aa/d is this element.
+(c) Now let us consider the general case. Let pr, pz, . . . , p, be
+the prime numbers dividing either a or b and let
+a = p, “1 pz
+n2
+. . . prnr
+b = pimlpzm;, . ..prm’.
+Cal1 ti the larger of the two numbers ni and 1. Then
+c = p*
+t1
+p2
+t2
+t
+. . . prr*.
+According to (b) we cari find in the group an element of order pni and
+one of order pi?. Thus there is one of order pi ti. Part (a) shows that
+the product
+of these elements Will have the desired order c.
+- Lemma 2.
+- If there is an element C in an abelian group whose
+- order c is - maximal (as is always the case if the group is finite) then c
+is
+- divisible
+- by the order a of every element A in the group; hence
+x - c = 1 is - satisfied by each element in the group.
+Proof: If a does not divide c, the greatest common
+multiple of a
+and c would be larger than c and we could find an element of that order,
+thus contradicting the choice of c.
+We now prove Theorem 17. Let n be the order of S and r the
+largest order occuring in S. Then x’ - 1 = 0 is satisfied for a11 ele-51
+ments of S. Since this polynomial of degree r in the field cannot have
+more than r roots, it follows that r - > n. On the other hand r - < n be-
+cause the order of each element divides n. S is therefore a cyclic
+group consisting of l,~, ~2,. . . , c”-I where 6” = 1.
+Theorem 17 could also have been based on the decomposition
+theorem for abelian groups having a finite number of generators. Since
+this theorem Will be needed later, we interpolate a proof of it here.
+Let G be an abelian group, with group operation written as +.
+The element g,, . . . , g, Will be said to generate G if each element g of
+G cari be written as sum of multiples of g,, . . . , g,, g = n,g, + . . . + nkgk.
+If no set of fewer than k elements generate G, then g,, . . . , G Will be
+called a minimal generating system. Any group having a finite genera-
+ting system admits a minimal generating system. In particular, a finite
+group al.ways admits a minimal generating system.
+F r o m t h e i d e n t i t y nl( g, + mg,) + (n2 - n,m)g2 = n,g, + n2g,
+it follows that if g,, g,, . . . , g, generate G, also g, + mg,,
+g,, * . . >g, generate G.
+An equation m,g, + m,g, + . . . + m,g, = 0 Will be called a re-
+lation between the generators, and ml, . . . , mk Will be called the co-
+efficients in the relation.
+We shall say that the abelian group G is the direct product of its
+subgroups G,, G,, . . . , G, if each g E G is uniquely representable as a
+s u m g = x1 + x2 + . . . + x,,wherexi
+E Gi,i = l,..., k..52
+Decomposition Theorem. Each abelian group having a finite num-
+-
+ber of generators is the direct product of cyclic subgroups G,, . . . , G,
+~~
+where the order of Gi divides the order of Gi+i, i = 1, . . . , n-l and n is
+~-
+the number of elements in a minimal generating system. ( Gr, Gr+i , . . . , Gn
+may each be infinite, in which case, to be precise,
+O(Gi)lO(Gi+,)fori
+= 1,2,...,r-2).
+We assume the theorem true for a11 groups having minimal genera-
+ting systems of k-l elements. If n = 1 the group is cyclic and the
+theorem trivial. Now suppose G is an abelian group having a minimal
+generating system of k elements. If no minimal generating system satis-
+fies a non-trivial relation, then let g,, g,, . . . , g, be a minimal generating
+system and G,,G,, . . . , G, be the cyclic groups generated by them.
+For each g 6 G, g = n,g, + . . . + nkgk where the expression is
+uniqu.e; otherwise we should obtain a relation. Thus the theorem would
+be true. Assume now that some non-trivial relations hold for some mini-
+mal generating systems. Among a11 relations between minimal genera-
+ting systems, let
+(1)
+m,g, + . . . + mkg, = 0
+be a relation in which the smallest positive coefficient occurs. After
+an eventual reordering of the generators we cari suppose this coefficient
+to be mi. In any other relation between g,, . . . , g,.
+(2)
+ni g, + . . . + nkgk = 0
+we must have mi/ni. Otherwise n 1 = qmi + r, 0 < r < mi and q times
+relation (1) subtracted from relation (2) would yield a relation with a
+coefficient r < mi. Also in relation (1) we must have m,/m,, i = 2,. . . , k.53
+For suppose mi does not divide one coefficient, say m, . Then
+m2
+= qm, + r, 0 < r < mr. In the generating system
+g, + g,, k‘...> g, we should have a relation
+mi( g, + qg,) + rg, + m,g, + . . . + mkq, = 0 where the coefficient
+r contradicts the choice of mi. Hence m2 = q2m1, m3 = q,m,, . . . , mk = q,m,.
+The system  = g, + q,g, + . . . + qkgk, g,, . . . , g, is minimal gen-
+erating, and m,gr = 0. In any relation 0 = n,Fi + n2g2 + . . . + nkgk
+since mr is a coefficient in a relation between gi, g,, . . . , g, our pre-
+vious argument yields mr / nr , and hence nr gr = 0.
+Let G’ be the subgroup of G generated by g,, . . . , g, and G, the
+cyclic group of order m, generated by gr . Then G is the direct product
+of G, and G’ . Each element g of G cari be written
+g = nigi + n2g2 + . . . + nkg, = nrgr + g’.
+The representation is unique, since n,g, + g’ = nr’gl + g” implies
+the relation (nr - nr’)g, + (g’ - g ” ) = 0 , h e n c e
+(nl - ni )E, = 0,
+SO
+that nrgr = n;gi and also g’ = g”.
+E3y our inductive hypothesis, G ’ is the direct product of k-l
+cyclic groups generated by elements g2, ES, . . . , gk whose respective
+orders t,, . . . , t, satisfy ti / ti+r , i = 2, . . . , k-l. The preceding argu-
+ment applied to the generators gr, g2, . . . , g, yields m, j t,, from which
+the theorem follows.
+I3y a finite field is meant one having only a finite number
+of elements.
+Corollary.
+-~~ The non-zero elements of a finite field form a cyclic
+group.
+If a is an element of a field F, let us denote the n-fold of a, i.e.,54
+the element of F obtained by adding a to itself n times, by na. It is ob-
+vious that n.(m.a)
+= (nm).a and(n.a)(m.b)
+= nmeab. If for one
+element a f 0, there is an integer n such that na a = 0 then n. b = 0
+foreachbinF,sincen.b=(n.a)(a-‘b)=O.a-’b=O..Ifthereisa
+positive integer p such that p. a = 0 for each a in F, and if p is the
+smallest integer with this property, then F is said to have the charac-
+- teristic - p. If no such positive integer exists then we say F has charac-
+teristic 0. The characteristic of a field is always a prime number. for if
+p = r.s t h e n p a = rs.a = r.(s.a). H o w e v e r , s.a = b  Oif a f 0
+and r b + 0 since both r and s are less than p,
+SO
+that pa f 0 contrary
+to the definition of the characteristic. If na = 0 for a f 0, then p divides
+n, for n = qp + r where 0 - < r < p and na = (qp + r)a = qpa + ra.
+Hence na = 0 implies ra = 0 and from the definition of the characteristic
+since r < p, we must have r = 0.
+If F is a finite field having q elements and E an extension of F
+such that (E/F) = n, then E has q” elements. For if or, 02,. . . ,W n is
+a basis of E over F, each element of E cari be uniquely represented as
+a linear combination xiwr + xZoZ + . . . + x,w, where the xi belong to
+F. Since each xi cari assume q values in F, there are qn distinct possi-
+ble choices of x1, . . . , xn and hence qn distinct elements of E. E is
+finite,, hence, there is an element a of E
+SO
+that E = F(a). (The non-
+zero elements of E form a cyclic group generated by a).
+IfwedenotebyP
+5 [0,1,2 ,..., p-l] the set of multiples of the
+unit element in a field F of characteristic p, then P is a subfield of F
+having p distinct elements. In fact, P is isomorphic to the field of
+integers reduced mod p. If F is a finite field, then the degree of F over55
+P is finite, say (F/P) = n, and F contains p* elements. In other
+words, the order of any finite field is a power of its characteristic.
+If F and F’ are two finite fields having the same order q, then
+by the preceding, they have the same characteristic since q is a power
+of the characteristic. The multiples of the unit in F and FI form two
+fields P and P’ which are isomorphic.
+The non-zero elements of F and F’ form a group of order q-l
+and, therefore, satisfy the equation xq-l - 1 = 0. The fields F and FI
+are splitting fields of the equation x q-l = 1 considered as lying in P
+and P’ respectively. By Theorem 10, the isomorphism between P and
+P ’ cari be extended to an isomorphism between F and F ’ . We have thus proved
+THEOREM 18. Two finite fields having the same number of ele-
+ments are isomorphic.
+~-
+gifferentiation. If f(x) = ao + six + . . . + anxn i s a poly-
+nomial in a field F, then we define f’ = a, + 2a,x + . . . + nanx”-i .
+The reader may readily verify that for each pair of polynomials f and
+g we have
+(f + g)’ = f’ + g’
+(f g>’ = fg’ + gf’
+(f )’ = nf”-‘. f’
+THEOREM 19. The polynomial f has repeated roots if and only
+-
+if in the splitting field E the polynomials f and f’ have a common
+root. This condition is eauivalent to the assertion that f and f’ have a56
+common
+~- factor of degree greater than 0 in F.
+If a is a root of multiplicity k of f(x) then f = (x-a )kQ (x) where
+Q(a) f 0. This gives
+f ’ = (
+x-a
+)kQ ’ (
+x
+) + k ( x-a ) k-1 Q (
+x
+) = ( x-a ) k-1 [ (
+x-a
+) Q’ (
+x
+) + kQ ( x ) 1.
+If k > 1, then a is a root of f’ of multiplicity at least k-l. If
+k = 1, then f’(x) = Q(x) + (x-a)Q’(x)
+and f’(a) = Q(a) f; 0. Thus,
+f and f’ have a root a in common if and only if a is a root of f of
+multiplicity greater than 1.
+If f and f’ have a root a in common then the irreducible polynomial
+in F having a as root divides both f and f’ . Conversely, any root of a
+factor common to both f and f’ is a root of f and f ’ .
+Corollary. If F is a field of characteristic 0 then each irreducible
+-~
+polynomial in F is separable.
+~~
+Suppose to the contrary that the irreducible polynomial f(x) has
+a root a of multiplicity greater than 1. Then, f ’ (x) is a polynomial
+which is not identically zero (its leading coefficient is a multiple of
+the leading coefficient of f(x) and is not zero since the characteristic
+is 0) and of degree 1 less than the degree of f(x). But a is also a root
+of f’ (x) which contradicts the irreducibility of f(x).
+J. Roots
+-
+- of Unity.
+If F is a field having any characteristic p, and E the splitting
+field of the polynomial x D - 1 where p does not divide n, then we
+shall refer to E as the field generated out of F by the adjunction of a
+primitive nth root of unity.
+~~
+The polynomial x” ~ 1 does not have repeated roots in E, since
+its derivative, nx”-’ , has only the root 0 and has, therefore, no roots57
+in common with x n - 1. Thus, E is a normal extension cf F.
+IfE,,t* ,..., Cn are the roots of x n - 1 in E, they form a group under
+multiplication and by Theorem 17 this group Will be cyclic. If
+1 ,C,C2,a. .,c n-1 are the elements of the group, we shall cal1 c a primi-
+tive n th root of unity. The smallest power of E which is 1 is the n th.
+THEOREM
+20. If E is the field generated from F by a primitive
+-~
+nth root of unity, then the group G of E over F is abelian for any n and
+~~
+cyclic if n is a prime number.
+~-
+We have E = F(   ), since the roots of x” - 1 are powers of 6.
+Thus, if o and r are distinct elements of G, o(c) f r(e). But ~(6) i s a
+root of xn - 1 and, hence, a power of 6. Thus, o(c) = c ““where
+no
+is an integer 1 5 no < n. Moreover, ru(~) = r( r”o) = (r(t)) “ o =
+cnr “u = or(~). T h u s , nor = snr mod n. Thus, the mapping of o on no
+is a homomorphism of G into a multiplicative subgroup of the integers
+mod n. Since r f o implies T(E) f o(c), it follows that r f o implies
+“a f nr mod n. Hence, the homomorphism is an isomorphism. If n is a
+prime number, the multiplicative group of numbers forms a cyclic group.
+K. Noether
+Equations.
+If E is a field, and G = ( CJ, r, . . .) a group of automorphisms of E,
+any set of elements x,, xr , . . . in E Will be said to provide a solution to
+Noether’s
+equations if xo . D (xr ) = xor for each o and r in G. If one
+~~
+element x0 = 0 then xr = 0 for each r 6 G. As T traces G, or assumes
+a11 values in G, and in the above equation xor = 0 when xo = 0. Thus,
+in any solution of the Noether equations no element xo = 0 unless the
+solution is completely trivial. We shall assume in the sequel that the58
+trivial solution has been excluded.
+THEOREM 21. The system xo, xr , . . . is a solution to Noether’s
+-
+equations if and only if there exists an element a in E, such that
+=
+X fJ
+CL/(~( a ) for each o.
+For any a, it is clear that xo = a/o( a) is a solution to the
+equations, since
+a/o(a)~o(a/r(a>)
+= a/a(a>*o(a)/ui-(a)
+= a/o7(a).
+Conversely, let x0, xr , . . . be a non-trivial solution. Since the
+automorphisms o, T , . . . are distinct they are linearly independent, and
+the equation x0 ‘U(Z) + XrT(Z) + . . . = 0 does not hold identically.
+Hence, there is an element a in E such that
+xo.cr(a) + x,r(a) + . . . = a f 0. Applying u to a gives
+o(a) = T,CG a(x,).m(a>.
+Multiplying by ~0 gives
+xu.u(u) =
+C xoo(x,).or(a>.
+7CG
+Replacing xc. c( xr ) by b and noting that or assumes a11 values in
+G when r does, we have
+SO
+that
+C x,r(a) = a
+Xrlr . o(a) = TEG
+xu = a/o(a).
+A solution to the Noether
+equations defines a mapping C of G
+into E, namely, C(a) = x,,. If F is the fixed field of G, and the ele-
+ments xc lie in F, then C is a character of G. For
+C(OT)= xm = x,.a(x,) = x0x7= C(a).C(r)sinceo(x,)
+= x,if
+xr c F. Conversely, each character C of G in F provides a solution59
+to the Noether equations. Cal1 C(o) = xo. Then, since xr 6 F,
+we have a( xr) = xr . Thus,
+xu .a(s:,) == xoexr = C(~)*C(T) = C ( o r ) = xor. W e t h e r e f o r e h a v e ,
+by combining this with Theorem 21,
+THEOREM 22. If G is the group of the normal field E over F,
+then for each character C of G into F there exists an element Q in E
+such
+that C(a) = a/o(a) and, conversely, if a/o( a) is in F for each
+~~
+(T, then C ((7) = a/o( a ) is a character of G. If r is the least common
+multiple
+of the orders of elements of G, then
+~~
+a’ c
+F.
+We have already shown a11 but the last sentence of Theorem 22.
+T O prove this we need only show
+ar/a(ar)
+=
+o(ar)
+(a/a(a))= = (C(o))r =
+= a’ for each o E G. But
+C(or)
+=
+C(1) = 1.
+L. Kummer’s Fields.
+If F contains
+a primitive nth root of unity, any splitting field E
+of a polynomial (x” - a,)(x” - a*). . .(x” - ar) where ai 6 F for
+i = 1,2,. . . , r Will be called a Kummer extension of F, or more briefly,
+a ----.--z
+Kummer field
+If a field F contains a primitive nth root of unity, the number n
+is not divisible by the characteristic of F. Suppose, to the contrary, F
+has characteristic p and n = qp. Then yn - 1 = (y - 1 )n since in the
+expansion of (y - 1 )P each coefficient other than the first and last is
+divisible by p and therefore is a multiple of the p-fold of the unit of F
+and thus is equal to 0. Therefore x” - 1 = (x q)P - 1 = (x4 - 1 )n
+and x” - 1 cannot have more than q distinct roots. But we assumed
+that F has a primitive n th root of unity and 1, 6,~ 2,. . . , E n-1 would be60
+n distinct roots of x” - 1. It follows that n is not divisible by the
+characteristic of F. For a Kummer field E, none of the factors
+X”
+- ai, ai f 0 has repeated roots since the derivative, nx”-l , has
+only the root 0 and has therefore no roots in common with xn - ai.
+Therefore, the irreducible factors of x” - a, are separable,
+SO
+that -
+E
+is a normal extension of F.
+Let ai be a root of x” - ai in E. If ci, c2, . . . , tn are the n dis-
+tinct nth roots of unity in F, then ai+,, aic2, . . . , a,~,, Will be n distinct
+roots of x” - ai, and hence Will be the roots of x” - a,,
+SO
+that
+E = F(a,,a,,..., ar). Let o and r be two automorphisms in the group
+G of E over F. For each ai, both o and r map ai on some other root of
+x” - ai. Thus r(ai) = ciTai and o(ai) = cio ai where Q, and tir are nth
+roots of unity in the basic field F. It follows that
+r(o(ai))
+= T(tiaai)
+= ciuT = tiocirai = o(T(ai). Since oand r
+are commutative over the generators of E, they commute over each ele-
+ment of E:. Hence, G is commutative. If ~7 c G, then o(ai) =
+ciGai,
+%J
+“i
+a'(a,) = eio 2ai, etc. Thus, oni = ai for ni such that
+= 1. Since the order of an n th root of unity is a divisor of n, we
+have ni a divisor of n and the least common multiple m of nr, n2,. . . , nr
+is a divisor of n. Since o ya,) = ai for i = 1,2,. . . , r it follows that m
+is the order of CJ. Hence, the order of each element of G is a divisor of
+n and, therefore, the least common multiple r of the orders of the ele-
+ments of G is a divisor of n. If c is a primitive nth root of unity, then
+en/’ is a primitive r th root of unity. These remarks cari be summarized
+in the following.61
+23. If E is a Kummer field, i.e., a splitting field of
+- THEOREM
+-
+p(x)
+= (x” - a,)(x” - az). . .(x” - ar) whete a, lie in F, and F
+~-
+contains
+a primitive nth root of unity, then: (a) E is a normal extension
+~~
+of F; (b) the group G of E over F is abelian, (c) the least common multi-
+~-
+ple of the orders of the elements of G is a divisor of n.
+~~
+Corollary.
+-
+-
+- If E is the splitting field of xp - a, and F contains a
+primitive
+pth root of unity where p is a prime number, then either E = F
+~~
+and xp -- a is split in F, or xp - a is irreducible and the group of E
+over F is cyclic of order p.
+The order of each element of G is, by Theorem 23, a divisor of p
+and, hence, if the element is not the unit its order must be p. If Q is a
+root of xp - a, then a,ey, . . . ,cp-lc are a11 the roots of xP - a
+SO
+that
+F(a ) = E and ( E/F) < - p . Hence, the order of G does not exceed p
+SO
+that if G has one element different from the unit, it and its powers must
+constitute a11 of G. Since G has p distinct elements and their behavior
+is determined
+by their effect on a, then a must have p distinct images.
+Hence, the irreducible equation in F for a must be of degree p and is
+therefore xp - a = 0.
+The properties (a), (b) and (c) in Theorem 23 actually characterize
+Kummer fields.
+Let us suppose that E is a normal extension of a field F, whose
+group G over F is abelian. Let us further
+assume that F contains a
+primitive r th root of unity where r is the least common multiple of the
+orders of elements of G.
+The group of characters X of G into the group of r th roots of62
+unity is isomorphic to G. Moreover, to each cr 6 G, if 0 f 1, there exists
+a character C 6 X such that C (0) f 1. Write G as the direct product of
+the cyclic groups G,, G,, . . . , G, of orders mi / m2 / . . . / m,. Each u E G
+Vl 0z v2 . . .0r Vt Cal1 Ci the character sending cri
+may be w r i t t e n D = 0r
+.
+into ci, a primitive m.Ith root of unity and 5 into 1 for j f i. Let C be
+any character. C(oi) = cri, then we have C = CFi . C 2 i. . . C,’ i.
+Conversely, C P1 . . . Ct Pr defines a character. Since the order of Ci is
+1
+mi, the character group X of G is isomorphic to G. If 0 f 1, then in
+u=o 1 9 u2 1.‘2 . ..u t Vt at least one
+vi,
+say vr , is not divisible by mi.
+T h u s Cr( u) = civl f 1.
+Let A denote the set of those non-zero elements cz of E for which
+a’ 6 F and let Fi denote the non-zero elements of F. It is obvious that
+A is a multiplicative group and that Fi is a subgroup of A. Let A’ de-
+note the set of rth powers of elements in A and Fi the set of r th powers
+of elements of Fi. The following theorem provides
+a convenient
+in most applications
+method for computing the group G.
+THEOREM 24. The factor groups (A/F, ) and (A’/F ;) are iso-
+morphic to each other and to the groups G and X.
+We map A on A’ by making a 6 A correspond to
+a’ 6
+A’. If a’ t Fi,
+where a 6 F, then b c A is mapped on ar if and only if br = a=, that is,
+if b is a solution to the equation x’ - a’ = 0. But a, ca, c2a,. . . , cr-’ a
+are distinct solutions to this equation and since 6 and a belong to Fi,
+it follows that b must be one of these elements and must belong to Fi.
+Thus, the inverse set in A of the subgroup Fi of A’ is Fi ,
+factor groups (A/F, ) and (A’/F; ) are isomorphic.
+SO
+that the63
+If a is an element of A, then (a/o(~))~
+= ar/o(a*)
+= 1. Hence,
+a/o(a) is an rth root of unity and lies in F 1. By Theorem 22, ~/a (a )
+defines a character C (0) of G in F. We map a on the corresponding
+character C. Each character C is by Theorem 22, image of some a.
+Moreover, u . a ’ is mapped on the character C * (0) =
+a.a’/o(a.a’)
+= a.a’/o(a>-a(a’>
+that the mapping is homomorphism.
+= C(o>.C’(a>
+= C.C’(u),
+SO
+The kernel of this homomorphism
+is the set of those elements a for which a/a(a) = 1 for each o, hence
+is Fi. It follows, therefore, that (A/F, ) is isomorphic to X and hence
+also to G. In particular, (A/F, ) is a finite group.
+We now prove the equivalence between Kummer fields and fields
+satisfying (a), (b) and (c) of Theorem 23.
+THEOREM 25. If E is an extension field over
+F, then E is a
+Kummet field if and only if E is normal, its group G is abelian and F
+contains a primitive rth root 6 of unity where r is the least common
+multinle of the orders of the elements of G.
+The necessity is already contained in Theorem 23.. We prove the
+sufficiency. Out of the group A, let a,F,,a,F,,
+. . . ,a,F, be the cosets
+of Fi. Since ai E A, we have af = ai 6 F. Thus, ai is a root of the
+equation x’ - ai = 0 and since coi, c2ai, . . . , c'-*ai are also roots,
+X’
+- ai must split in E. We prove that E is the splitting field of
+(x’ - a1 )(x’ - a2 ). . . (x’ - a,) which Will complete the proof of the
+theorem. T O this end it suffices to show that F ( ai, a2, . . . , ut) = E.64
+Suppose that F(a,,a*, . . . ,a,) f E. Then F(a,, . . . ,a,) is an
+intermediate field between F and E, and since E is normal over
+F ( a , , . . . , ut) there exists an automorphism o 6 G, D f 1, which
+leavesF(a,,..., a,) fixed. There exists a character C of G for which
+C(a) f 1. Finally, there exists an element a in E such that
+C(o) = a/a(a)
+f 1. But a* E Fi by Theorem 22, hence
+a 6 A.
+Moreover, A C F(a,, . . . ,a, ) since a11 the cosets a,F, are contained
+in F(a,, . . . , a,). Since F(a,, . . . ,a,) is by assumption left fixed by
+o, a(a) = a which contradicts a/o(a)
+f 1. It follows, therefore, that
+F(a,,...,a,) = E.
+Corollary. If E is a normal extension of F, of prime order p, and
+-~
+- if F contains
+-
+a primitive pth root of unity, then E is splitting field of
+an irreducible polynomial xn - a in F.
+~~
+E is generated by elements ai, . . . ,a,, where ay 6 F. Let ai be
+not in F.. Then xp - a is irreducible, for otherwise F(a 1 ) would be an
+intermediate field between F and E of degree less than p, and by the
+product theorem for the degrees, p would not be a prime number, con-
+trary to assumption. E = F ( a1 ) is the splitting field of xp - a.
+M. Simple Extensions.
+We consider the question of determining under what conditions
+an extension field is generated by a single element, called a primitive.
+We prove the following
+THEOREM 26. A finite extension E of F is primitive over F if
+-65
+and
+only if there are only a finite number of intermediate fields.
+~-
+(a) Let E = F(a) and cal1 f(x) = 0 the irreducible equation for
+a in F. Let B be an intermediate field and g(x) the irreducible equa-
+tion for Q in B. The coefficients of g(x) adjoined to F Will generate a
+field B ’ between F and B. g ( x ) is irreducible in B, hence also in B ’ .
+Since 15 = B’(a) we see (E/B) = (E/B’). This proves B’ = B. S O B
+is uniquely determined by the polynomial g(x). But g(x) is a divisor
+of f(x), and there are only a finite number of possible divisors of f(x)
+in E. Hence there are only a finite number of possible B’s.
+(b) Assume there are only a finite number of fields between E
+and F. Should F consist only of a finite number of elements, then E is
+generated by one element according to the Corollary on page 53. We
+may therefore assume F to contain
+an infinity of elements. We prove:
+T O any two elements a, p there is a y in E such that F(a, /? ) = F (y).
+Let y -= a + ap with a in F but for the moment undetermined. Con-
+sider a11 the fields F(y) obtained in this way. Since we have an
+infinity of a’s at our disposal, we cari find two, say a, and a2, such
+that the corresponding y’s, yr = a + a,/3 and y2 = a + a,@, yield
+the same field F ( y1 ) = F ( y2 ). Since both y1 and y2 are in F ( y1 ),
+their difference (and therefore 6) is in this field. Consequently also
+Y1 - a,P := a. S O F(a,P) C F(y,). Since F(y,) C F(a,B) our con-
+tention is proved. Select now I] in E in such a way that ( F ( T] )/F ) is
+as large as possible. Every element E of E mustbe in F( ‘7) or else we
+could fïnd an element 6 such that F(6) contains both 7 and 6. This
+proves E = F(n).66
+THEOREM 27. If E = F(a,, a2, . . . ,a,) is a finite extension of
+-
+the field F, and ai, a*, . . . ,a, are separable elements in E, then there
+exists
+a primitive
+19 in E such that E = F (0).
+-
+-
+Proof: Let fi(x) be the irreducible equation of ai in F and let B
+be an extension of E that splits fi(x) fz( x) . . . f,(x). Then B is normal
+over F and contains, therefore, only a finite number of intermediate
+fields (as many as there are subgroups of G). S O the subfield E contains
+only a finite number of intermediate fields. Theorem 26 now compietes
+the proof.
+N. Existence
+of a Normal Basis.
+-~
+The following theorem is true for any field though we prove it
+only in the case that F contains an infinity of elements.
+THEOREM
+28. If E is a normal extension of F and hi, oz, . . . , on
+-
+-
+are the elements of its group G, there is an element 8 in E such that
+-~
+the
+n elements o,(t9),a,(ti), . . . , un( 0) are linearly independent with
+-~
+resuect to F.
+According to Theorem 27 there is an a such that E = F( U ). Let
+f(x) be the equation for a, put o,(a) = ci,
+and gi(x) = o,(g(x>> = (x-af,\~?ca.)
+1
+1
+g i( x y) is a polynomial in E having ak as root for k f i and hence
+(1)
+g,(x)g,(x) = 0 (mod f(x)) for i f k.
+In the equation
+(2)
+g*(x) + g,(x) + . . . + g,(x) - 1 = 0
+the left side is of degree at most n - 1. If (2) is true for n different
+values of x, the left side must be identically 0. Such n values are67
+al,a2,. . . ,a,,
+since gi(
+ai)
+= 1 and
+gk(ai ) = 0
+for k f i.
+Multiplying (2) by gi( x) and using (1) shows:
+(3)
+(g,(X))’
+= gi(X) (mod
+f(x))-
+We next compute the determinant
+(4)
+D ( x ) = loiok(g(x))l
+i , k = 1,2 ,..., n
+and prove D(x) f 0. If we square it by multiplying column by column
+and compute its value (mod f(x)) we get from (l), (2), (3) a determi-
+nant that has 1 in the diagonal and 0 elsewhere.
+SO
+(D(x))~ = 1 ( m o d f ( x ) ) .
+D (x 1) cari have only a finite number of roots in F. Avoiding them
+we cari find a value a for x such that D(a) f 0. Now set 8 = g(a).
+Then the determinant
+(5)
+l”iak(e)l
+f O’
+C:onsider any linear relation
+x1a,(8) + xp*(8> + . . . + ~,.,a,( 0) = 0 where the xi are in F. Apply-
+ing the automorphism oi to it would lead to n homogeneous equations for
+the n unknowns xi. (5) shows that xi = 0 and our theorem is proved.
+0. ~~
+Theorem on Natural Irrationalities.
+L,et F be a field, p(x) a polynomial in F whose irreducible factors
+are separable, and let E be a splitting field for p(x). Let B be an arbi-
+trary extension of F, and let us denote by EB the splitting field of p(x)
+when p(x) is taken to lie in B. If
+al, . . . ,as
+are the roots of p(x) in
+EB, then F(a,, . . . , as) is a subfield of EB which is readily seen to
+form a splitting field for p(x) in F. By Theorem 10, E and F(a*,
+. . . ,
+as )68
+are isomorphic. There is therefore no loss of generality if in the sequel
+wetakeE
+= F(al,..., a,) and assume therefore that E is a subfield
+o f E B . A l s o , E B = B ( a *,...> as).
+Let us denote by E A B the intersection of E and B. It is readily
+seen that E n B is a field and is intermediate to F and E.
+THEOREM 29. If G is the group of automorphisms of E over F,
+- and H the - group of EB over B, then H is isomorphic to the subgroup of
+G having E n B as its fixed field.
+Each automorphism of EB over B simply permutes al, . . . , as in
+some fashion and leaves B, and hence also F, fixed. Since the ele-
+ments of EB are quotients of polynomial expressions in al, . . . , as with
+coefficients in B, the automorphism is completely determined by the
+permutation it effects on a 1, . . . , as. Thus, each automorphism of EB
+over B defines an automorphism of E = F ( al, . . . , as ) which leaves F
+fixed. Distinct automorphisms, since (x1,. . . , as belong to E, have
+different effects on E. Thus, the group H of EB ovet B cari be con-
+sidered as a subgroup of the group G of E over F. Each element of H
+leaves E n B fixed since it leaves even a11 of B fixed. Howevet, any
+element of E which is not in E n B is not in B, and hence would be
+moved by at least one automorphism of H. It follows that E r\ B is the
+fixed field of H.
+- Corollaty. - If, undet the conditions of Theorem 29, the gtoup G is of
+- prime order,
+- then either H = G or H consists of the unit element alone.69
+III APPLICATIONS
+by
+A. N. Milgram
+A. - Solvable - Groups.
+Before proceeding with the applications we must discuss certain
+questions in the theory of groups. We shall assume several simple propo-
+sitions:
+(a) If N is a normal subgroup of the group G, then the mapping
+f(x) = xN is a homomorphism of G on the factor group G/N. f is called
+the natural homomorphism. (b) Th e image and the inverse image of a
+normal subgroup under a homomorphism is a normal subgroup. (c) If f
+is a homomorphism of the group G on G’ , then setting N’ = f(N), and
+defining the mapping g as g( xN ) = f(x) N ’ , we readily see that g is
+a homomorphism of the factor group G/N on the factor group G ‘/NI .
+Indeed, if N is the inverse image of N’ then g is an isomorphism.
+We now prove
+THEOREM 1. (Zassenhaus). If U and V are subgroups of G, u and
+-~~
+v normal subgroups of U and V, respectively, then the following three
+factor groups are isomorphic: u (U nV) /II (U nv),
+v(UnV)/V(UnV),
+(unv)/(unv)(vnu).
+It is obvious that U n v is a normal subgroup of U n V. Let f
+be the natural mapping of U on V/u. Cal1 f(UnV) = H and f(Unv) = K.
+Then f-‘(H) = u(UnV)
+and f“(K)
+= u(Unv)
+from which it follows
+that u( UnV)/u( Unv) is isomorphic to H/K. If, however, we view f as
+defined only over U n V, then f-‘(K) = [un(UnV)](Unv)
+(unV)(Unv)
+SO
+that (UnV)/(unV)(Unv)
+=
+is also isomorphic to H/K.70
+Thus the first and third of the above factor groups are isomorphic to
+each other. Similarly, the second and third factor groups are isomorphic.
+Corollary 1. If H is a subgroup and N a normal subgroup of the
+-
+group G, then H/HnN
+is isomorphic to HN/N, a subgroup of G/N.
+Proof: Set G = U, N = u, H = V and the identity 1 = v in
+Theorem 1.
+Corollary 2. Under the conditions of Corollary 1, if G/N is
+-
+- abelian, - SO also is H/HnN.
+Let us cal1 a group G solvable if it contains
+groupsG
+a sequence of sub-
+= Go 1 G, I... 1 Gs = 1, each a normal subgroup of the
+preceding, and with G,-r /Gi abelian.
+THEOREM 2. Any subgroup of a solvable group is solvable. For
+-
+let H be a subgroup of G, and cal1 Hi = HnG,. Then that Hi-r/H, is
+abelian follows from Corollary 2 above, where Gi r, Gi and Hi , play
+the role of G, N and H.
+THEOREM 3. The homomorph of a solvable group is solvable.
+-
+Let f(G) = G’ , and define G 1 = f ( Gi) where Gi belongs to a
+a sequence exhibiting the solvability of G. Then by (c) there exists a
+homomorphism mapping Gi r/Gi on Gi,/Gi . But the homomorphic image
+of an abelian group is abelian SO
+that the groups GI exhibit the
+solvability of G’ .
+B. - Permutation
+Groups.
+-
+Any one to one mapping of a set of n abjects on itself is called
+a - permutation.
+-
+- The iteration of two such mapping is called their product.71
+It may be readily verified that the set of a11 such mappings forms a
+group in which the unit is the identity map. The group is called the
+symmetric group on n letters.
+~-
+Let us for simplicity
+denote the set of n abjects by the numbers
+1,2,..., n. The mapping S such that S(i) = i + 1 mod n Will be de-
+noted by (12!3. . .n) and more generally (i j . . . m) Will denote the map-
+pingTsuchthatT(i)=j,...,T(m)=i.If(ij...m)hasknumbers,
+then it Will be called a k cycle. It is clear that if T = (i j . . . s) then
+T-i = ( s . . .ji).
+We now establish the
+Lemma. If a subgroup U of the symmetric group on n letters
+-~-
+(n
+> 4) contains
+~~
+every 3-cycle, and if u is a normal subgroup of U
+such that U,/u is abelian, then u contains
+~~
+every 3-cycle.
+Proof: Let f be the natural homomorphism f(U) = U/u and let
+x = (ijk), y = (krs) be twoelements of U, where i, j, k, r, s are 5
+numbers. Then since V/u is abelian, setting f(x) = x’ , f(y) = y ’
+we have f(x-‘y-‘xy) = ~‘-~y’-rx’y’ = 1, so that x-‘y-‘xy E u. But
+x-‘y-‘xy = (kji).(srk).(ijk).(krs)
+= (kjs) and for each k, j, s we
+have (kjs)  F u.
+THEOREM
+4. The symmetric group G on n letters is not solvable
+-~~
+for n > ,4.
+If there were a sequence exhibiting the solvability, since G con-
+tains every 3-cycle,
+SO
+would each succeeding group, and the sequence
+could not end with the unit.72
+C. Solutïon
+of Equations by Radicals.
+-
+-
+The extension field E over F is called an extension by radicals
+if there exist intermediate fields B, , B, , . . . , Br = E and Bi = Bi-r( a i)
+where each ai is a root of an equation of the form xni - ai = 0,
+ai E Bi-, . A polynomial f ( x ) in a field F is said to be solvable by
+radicals if its splitting field lies in an extension by radicals. We assume
+unless otherwise specified that the base field has characteristic 0 and
+that F contains as many roots of unity as are needed to make our sub-
+sequent statements valid.
+Let us remark first that any extension of F by radicals cari always
+be extended to an extension of F by radicals which is normal over F.
+Indeed B, is a normal extension of B, since it contains not only ar,
+but cal, where E is any n,-root of unity,
+SO
+that B, is the splitting field
+of xnl - a,. If fr(x) =TT(xn2 - c( a2 )), where 0 takes a11 values in
+u
+the group of automorphisms of B, over BO, then f, is in BO, and ad-
+joining successively the roots of xn2 - o( a 2) brings us to an exten-
+sion of B2 which is normal over F. Continuing in this way we arrive at
+an extension of E by radicals which Will be normal over F. We now
+prove
+THEOREM
+5. The polynomial f(x) is solvable by radicals if
+-
+and only if its group is solvable.
+Suppose f(x) is solvable by radicals. Let E be a normal exten-
+sion of F by radicals containing the splïtting field B of f(x), and cal1
+G the group of E over F. Since for each i, Bi is a Kummer extension of
+Bi r, the group of Bi over B,-r is abelian. In the sequence of groups73
+G = GB 11 GB
+1
+3 . . . 3 GB = 1 each is a normal subgroup of the
+precediig since G
+Bi-l
+r
+is the group of E over Bis1 and Bi is a normal
+extension of B,-i. But GB, /GB, is the group of B, over B,-i and hence
+1-l
+1
+is abelian. Thus G is solvable. However, G, is a normal subgroup of
+G, and G/G, is the group of B over F, and is therefore the group of the
+polynomial f(x). But G/G, is a homomorph of the solvable group G and
+hence is itself solvable.
+On the other hand, suppose the group G of f(x) to be solvable
+and let E be the splitting field. Let G = Go 1 G, 1 . . . 1 Gr = 1 be a
+sequence with abelian factor groups. Cal1 Bi the fixed field for Gi.
+Since G,-i is the group of E over B,-i and Gi is a normal subgroup of
+Gi-l, then Bi is normal over B,-i and the group Ci-i/G, is abelian. Thus
+Bi is a Kummer extension of Bi i, hence is splitting field of a polynomial
+oftheform(x”-a,)(x”-a2)...(xn-as)
+SO
+that by forming the successive
+splitting fields of the x” - ak we see that Bi is an extension of Biml by
+radicals, from which it follows that E is an extension by radicals.
+Remark. The assumption that F contains roots of unity is not
+necessary in the above theorem. For if f(x) has a solvable group G,
+then we may adjoin to F a primitive nth root of unity,
+where n is, say,
+equal to the order of G. The group of f(x) when considered as lying in
+F’ is, by the theorem on Natural Irrationalities, a subgroup G’ of G,
+and hence is solvable. Thus the splitting field over
+F’ of f(x) cari be
+obtained by radicals. Conversely, if the splitting field E over
+F of f(x)
+cari be obtained by radicals, then by adjoining a suitable root of unity
+E is extended to E’ which is still normal over F’ . But E’ could be74
+obtained by adjoining first the root of unity, and then the radicals, to
+F; F would first be extended to F ’ and then F ’ would be extended to
+E ’ . Calling G the group of E ’ over F and G ’ the group of E ’ over F ’ ,
+we see that G ’ is solvable and G/G ’ is the group of F ’ over F and
+hence abelian. Thus G is solvable. The factor group G/G, is the
+group of f(x) and being a homomorph of a solvable group is
+also solvable.
+D. The General Equation of Degree n.
+If F is a field, the collection of rational expressions in the
+variables ui, up, . . . , un with coefficients in F is a field F(ui, u2, . . . , un).
+By the general equation of degree n we mean the equation
+f ( x ) = x” - ulx”-i + l12x”-2 - + . . . + (-l)“u,.
+(1)
+Let E be the splitting field of f(x) over
+V
+l’VZ>...>
+F(ui, II~,. . . , un). If
+v, are the roots of f(x) in E, then
+u1 = v1 + v2 + . . . + vn> u2 = v1v2 + v1v3, + . . . + vnel Vn’. .
+. . . , un = VI . v2 . . . . . vn .
+We shall prove that the group of E over F(ui, u2, . . . , un) is the
+symmetric
+group.
+LetF(x,,x,,..., xn) be the field generated from F by the
+variables xi, x2,. . . ,x,. Let ai = xi + x2 + . . . + x”,
+a2
+= x1x2 + x1x3
++ . .
+. + XnelXn
+>...> an
+= x1x*.
+. .
+xn be the ele-
+mentary symmetric functions, i.e., (x-x ,)(x-x 2). . . (x-x,) =
+X”
+- alx”-’ + - . . .(-l)% ” = f*(x). If
+g(al,a2, . . . , a , )
+is a
+polynomial in ai, . . . ,a,, then g(a, ,a2, . . . ,a,) = 0 only if g is the75
+zero polynomial. For if g( xx,, cxixk, . . .) = 0, then this relation would
+hold also if the xi were replaced by the vi. Thus,
+g(cvi,cviv,,...) = Oorg(ul,uz,...,un)
+= Ofromwhichitfollows
+that g is identically zero.
+Between the subfield F(a,, . . . , an) of F( xi, . . . , xn) and
+F(ul,u2,. . . > un) we set up the following correspondence: Let
+f(u,, *. . ,11,)/g(u,, . . . >un) be an element of F(ui,. . . ,un). We make
+this correspond to f(a,, . . . ,a,)/g(a,, . . . ,a,). This is clearly a map-
+ping of F(ui,uz,.
+. . ,u,) on a11 of F(ai , . . . ,a,). Moreover, if
+f(al,a2,...,an)/g(a1,a~,...,a~)
+= fi (al,az!, . . . ,a,)/gl(al,a2,.
+. . ,a*), then fg, - gf, = 0. But this
+implies by the above that
+f(u,, . ..9U,h Ul,. . .>U,) - g(u,, . ..,Un)‘f,(U,,
+SO
+that f(u,, . . . ,u,)/g(u1,u2,.
+= fi(U],...,
+U”)/6cl(UI>U2>...>
+themappingof F(u,,u,
+. . .>U,) = 0
+. . ,u,)
+un). It follows readily from this that
+,..., un) on F(a,,a,,. ..,an)is an isomor-
+phism. But under this correspondence f(x) corresponds to f * ( x).
+SinceE:andF(x,,x,,...,
+xn) are respectively splitting fields of f(x)
+and f * I[X), by Theorem 10 the isomorphism cari be extended to an iso-
+morphism between E and F (xi, x2, . . . , xn). Therefore, the group of E
+over F(ur,uz,. . . , un) is isomorphic to the group of F ( x1, x2, . . . , xn)
+over F(al,a2,. . . ,a,).
+E:ach. permutation of xi, x2,. . . , xn leaves al,az, . . . ,a,, fixed
+and, therefore, induces an automorphism of F( xi, x2, . . . , x”) which
+leaves F(a,,a*, . . . , a,.,) fixed. Conversely, each automorphism of
+F(xl>xZ>...> x,, ) which leaves F(a 1, . . . , a,, ) fixed must permute the
+roots xi, x:!, . . . , xn of f*(x) and is completely determined by the76
+permutation it effects on x1, x2, . . . , xn. Thus, the group of F( x1, x2, . . . , xn)
+over F(a1,a2,. . .,a,)is th e s y mmetric group on n letters. Because of
+the isomorphism between F ( x1, . . . , xn ) and E, the group for E over
+W++. . . >u,,) is also the symmetric
+symmetric
+group. If we remark that the
+group for n > 4 is not solvable, we obtain from the theorem
+on solvability
+of equations
+the famous theorem of Abel:
+THEOREM 6. The group of the general equation of degree n is
+the
+symmetric group on n letters. The general equation
+~~ of degree n is
+not solvable by radicals if n > 4.
+E. Solvable Equations
+of Prime Degree.
+The group of an equation
+cari always be considered
+tation group. If f(x) is a polynomial
+the roots of f(x) in the splitting
+as a permu-
+in a field F, let a,, a2, . . . , c, be
+field E = F( ar, . . . , an). Then each
+automorphism of E over F maps each root of f(x) into a root of f(x),
+that is, permutes the roots. Since E is generated by the roots of f(x),
+different
+automorphisms
+must effect distinct permutations.
+group of E over F is a permutation
+al,a2,...,Qn
+a
+and
+a’
+group acting on the roots
+of f(x).
+For an irreducible equation
+let
+Thus, the
+this group is always transitive. For
+be any two roots of f(x), where f(x) is assumed
+ble. F(a ) and F(a ’ ) are isomorphic
+identity on F, and this isomorphism
+irreduci-
+where the isomorphism is the
+cari be extended
+of E (Theorem 10). Thus, there is an automorphism
+to an automorphism
+sending
+root into any other root, which establishes the “transitivity”
+any given
+of the group.77
+A permutation o of the numbers 1,2, , . . , q is called a linear
+substitution modulo q if there exists a number b b 0 modulo q such
+~~-
+that o(i) :E bi + c(mod q), i = 1,2,. . . ,q.
+7. Let f( x ) be an irreducible equation of prime de-
+- THEOREM
+-
+gree q in a field F. The group G of f( x) (which is a permutation group
+~-
+of
+the roots, or the numbers 1,2, . . . , q) is solvable if and only if,
+~~
+after
+a suitable change in the numbering of the roots, G is a group of
+~~
+linear
+substitutions modulo q, and in the group G a11 the substitutions
+~~
+withb = l,o(i) = c + l(c = 1,2 ,..., q)occur.
+~-
+Let G be a transitive substitution group on the numbers
+1,2,. . . , q and let G, be a normal subgroup of G. Let 1,2,. . . , k be the
+images of 1 under the permutations of G,; we say:
+1,2, . . . , k is a
+domain of transitivity of G,. If i < - q is a number not belonging to this
+e-
+domain of transitivity, there is a o E G which maps 1 on i. Then
+0(1,2,..., k) is a domain of transitivity of oGlu-‘. Since G, is a
+normal subgroup of G, we have G, = oG,o-‘. Thus, (T( 1,2,. . . , k) is
+again a domain of transitivity of G, which contains the integer i and
+has k elements. Since i was arbitrary, the domains of transitivity of
+G, a11 contain k elements. Thus, the numbers 1,2, . . . , q are divided
+into a collection of mutually exclusive sets, each containing k ele-
+ments,
+SO
+that k is a divisor of q. Thus,
+in case q is a prime, either
+k = 1 (and then G, consists of the unit alone) or k = q and G, is
+also transitive.
+T O prove the theorem, we consider the case in which G is
+solvable. Let G = G0 7> G, 3 . . . 3 Gs+l = 1 be a sequence exhibiting
+the solvability. Since G, is abelian, choosing a cyclic subgroup of it78
+would permit us to assume the term before the last to be cyclic, i.e.,
+Gs is cyclic. If ~7 is a generator
+of Gs, CJ must consist of a cycle con-
+taining a11 q of the numbers 1,2, . . . , q since in any other case Gs
+would not be transitive [ if <z = ( lij . . . m)( n . . . p) . . . then the powers
+of (T would map 1 only into 1, i, j . . ..m, contradicting
+Gs 1. By a change in the number of the permutation
+the transitivity
+of
+letters, we
+may assume
+o(i) = i + 1 (mod q)
+oc(i) E i + c (modq)
+Now let r be any element
+of Gsel. Since Gs is a normal subgroup
+of Gs.., > 7~7 -l isanelementofGs,sayrm-1=ob.Let7(i)
+= jorr-l(j)
+= i,
+then ro-r-l( j) = ob( j) = j + b (mod q). Therefore,
+Ta(i) E r(i) + b (mod q) or r(i+l)
+setting
+= r(i) + b for each i. Thus,
+T(O) = c, we have r(l) = c + b, r(2) = r( 1) + b = c + 2b
+and in general 7(i) E c + ib (mod q). Thus, each substitution
+is a linear substitution.
+Moreover, the only elements
+in G s-l
+of Gsml which
+leave no element fixed belong to Gs, since for each a f 1, there is an
+i such that ai + b = i (mod q) [ take i such that (a-l) i z - b].
+We prove by an induction
+substitutions,
+that the elements
+of G are a11 linear
+and that the only cycles of q letters belong to Gs. Sup-
+pose the assertion true of Gsq. Let r c Gsmnml
+and let v be a cycle
+which belongs to Gs (hence also to G,-,). Since the transform
+of a
+cycle is a cycle, r-107 is a cycle in Gs-, and hence belongs to Gn.
+Thus T-~UT = ub for some b. By the argument
+graph, r is a linear substitution
+in the preceding
+para-
+bi + c and if 7 itself does not belong to
+Gs, then 7 leaves one integer fixed and hence is not a cycle of q elements.79
+We now prove the second half of the theorem. Suppose G is a
+group of linear substitutions which contains
+a subgroup N of the form
+c(i) 5: i -+ c. Since the only linear substitutions which do not leave
+an integer fixed belong to N, and since the transform of a cycle of q
+elements is again a cycle of q elements, N is a normal subgroup of G.
+In each coset N . r where r(i) = bi + c the substitution 0-l~ occurs,
+where (T E i + c. But o-ir( i) = (bi + c) - c F bi. Moreover, if
+r(i) z biandr’(i)
+= b’i thenrr’(i)
+E bb’i. Thus, thefactorgroup
+(G/N) is isomorphic to a multiplicative subgroup of the numbers
+1,2,. . . , q-1 mod q and is therefore abelian. Since (G/N) and N are
+both abelian, G is solvable.
+Corollary 1. If G is a solvable transitive substitution group on q . *
+--~
+letters (q prime), then the only substitution of G which leaves two or
+~-
+more letters fixed is the identity.
+~~
+This follows from the fact that each substitution is linear modula
+q and bi + c E i (mod q) has either no solution (b z 1, c + 0) or
+exactly one solution(b f 1) unless b = 1, c = 0 in which case the sub-
+stitution is the identity.
+Corollary 2. A solvable, irreducible equation of prime degree in
+--~
+a field which is a subset of the real numbers has either one real root
+~~
+or a11 its roots are real.
+The group of the equation is a solvable transitive substitution
+group on q (prime) letters. In the splitting field (contained in the field
+of complex numbers) the automorphism which maps a number into its
+complex conjugate
+would leave fixed a11 the real numbers. By Corollary80
+1, if two roots are left fixed, then a11 the roots are left fixed,
+SO
+that
+if the equation has two real roots a11 its roots are real.
+F. Ruler and Compass Constructions.
+Suppose there is given in the plane a finite number of elementary
+geometric figures, that is, points, straight lines and circles. We seek
+to construct others which satisfy certain conditions in terms of the
+given figures.
+Permissible steps in the construction Will entai1 the choice of
+an arbitrary point interior to a given region, drawing a line through two
+points and a circle with given tenter and radius, and finally intersec-
+ting pairs of lines, or circles, or a line and circle.
+Since a straight line, or a line segment, or a circle is determined
+by two points, we cari consider ruler and compass constructions as con-
+structions of points from given points, subject to certain conditions.
+If we are given two points we may join them by a line, erect a
+perpendicular to this line at, say, one of the points and, taking the dis-
+tance between the two points to be the unit, we cari with the compass
+lay off any integer n on each of the lines. Moreover, by the usual
+method, we cari draw parallels and cari construct m/n. Using the two
+lines as axes of a cartesian coordinate system, we cari with ruler and
+compass construct a11 points with rational coordinates.
+Ifa,b,c,... are numbers involved as coordinates of points which
+determine the figures given, then the sum, product,
+difference and
+quotient of any two of these numbers cari be constructed. Thus, each81
+element of the field R( a, b, c, . . .) which they generate out of the
+rational numbers cari be constructed.
+It is required that an arbitrary point is any point of a given region.
+If a construction by ruler and compass is possible, we cari always
+choose our arbitrary points as points having rational coordinates. If we
+join two points with coefficients in R( a, b, c, . . . ) by a line, its equa-
+tion Will have coefficients in R( a, b, c, . . .) and the intersection of two
+such lines Will be a point with coordinates in R( a, b, c, . . . ). The equa-
+tion of a circle Will have coefficients in the field if the circle passes
+through three points whose coordinates are in the field or if its tenter
+and one point have coordinates in the field. However, the coordinates
+of the intersection of two such circles, or a straight line and circle, Will
+involve square roots.
+It follows that if a point cari be constructed with a ruler and com-
+pass, its coordinates must be obtainable from R( a, b, c, . . . ) by a formula
+only involving square roots, that is, its coordinates Will lie in a field
+RS 3 Rs-i 3 . . . 3 R, = R(a,b,c,...
+field over
+) where each field Ri is splitting
+Ri-r of a quadratic equation x2 - a = 0. It follows (Theorem
+6, p. 21) since either Ri = Ri-r or ( Ri/Ri-r ) = 2, that (RJR,
+) is a
+power of two. If x is the coordinate of a constructed point, tben
+(Rr( x)/R, ) * ( RS/R, (x)) = (RJR, ) = 2”
+SO
+that Rr( x)/R, must also
+be a power of two.
+Conversely, if the coordinates of a point cari be obtained from
+R(a,b,c,...
+) by a formula involving square roots only, then the point
+cari be constructed by ruler and compass. For, the field operations of82
+addition, subtraction, multiplication and division may be performed by
+ruler and compass constructions and, also, square roots using 1: r =
+r : rl to obtain r = d rI may be performed by means of ruler and
+compass
+instructions.
+As an illustration of these considerations,
+let us show that it is
+impossible to trisect an angle of 604 Suppose we have drawn the unit
+circle with tenter at the vertex of the angle, and set up our coordinate
+system with X-axis as a side of the angle and origin at the vertex.
+Trisection of the angle would be equivalent to the construction
+of the point ( COS 20”, sin 209 on the unit circle. From the equation
+COS
+38 = 4 cos3 0 - 3
+COS
+8, the abscissa would satisfy
+4x3 -. 3x = 1/2. The reader may readily verify that this equation has
+no rational roots, and is therefore irreducible in the field of rational
+numbers. But since we may assume only a straight line and unit
+length given, and since the 60° angle cari be constructed,
+we may take
+R(a,b,c,. . ..) to be the field R of rational numbers. A root a of the
+irreducible equation 8x3 - 6x - 1 = 0 is such that (R(a)/R)
+and not a power of two.
+= 3,
 \end{document}
