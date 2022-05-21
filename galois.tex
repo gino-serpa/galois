@@ -1,0 +1,133 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+
+\section{LINEAR ALGEBRA}
+
+\subsection{Fields}
+
+A field is a set of elements in which a pair of operations called
+multiplication and addition is defined analogous to the operations of
+multiplication and addition in the real number system (which is itself
+an example of a field). In each field $F$ there exist unique elements 
+called $0$ and $1$ which, under the operations of addition and multiplication, behave with respect to all the other elements of $F$ exactly as their 
+correspondents in the real number system. In two respects, the
+analogy is not complete: 1) multiplication is not assumed to be 
+commutative in every field, and 2) a field may have only a finite number
+of elements.
+
+More exactly, a field is a set of elements which, under the above
+mentioned operation of addition, forms an additive abelian group and
+for which the elements, exclusive of zero, form a multiplicative group
+and, finally, in which the two group operations are connected by the
+distributive law. Furthermore, the product of $0$ and any element is defined to be $0$.
+
+If multiplication in the field is commutative, then the field is called a commutative field.
+
+\subsection{Vector Spaces}
+
+If $V$ is an additive abelian group with elements $A, B, . . . , F$ a field with elements 
+$a, b, . . . ,$ and if for each $a \in F$ and $A \in V$ the product $aA$ denotes an element 
+of $V$, then $V$ is called a (left) vector space over $F$ if the following assumptions hold:
+
+\begin{itemize}
+\item $a(A + B) = aA + aB$
+\item $(a + b)A = aA + bA$
+\item $a(bA) = (ab)A$
+\item $1A = A$
+\end{itemize}
+
+
+The reader may readily verify that if $V$ is a vector space over F, then
+$oA = o$ and $a0 = 0$ where $o$ is the zero element of $F$ and $0$ that of $V$.
+For example, the first relation follows from the equations:
+
+\[
+aA = (a + o)A = aA + oA
+\]
+
+Sometimes products between elements of $F$ and $V$ are written in
+the form $Aa$ in which case $V$ is called a right vector space over $F$ to
+distinguish it from the previous case where multiplication by field elements 
+is from the left. If, in the discussion, left and right vector
+spaces do not occur simultaneously, we shall simply use the term
+“vector space”.
+
+\subsection{Homogeneous Linear Equations}
+
+If in a field $F$, $a_{ij}$, $i = 1,2,. . . , m$, $j = 1,2, . . . ,$ $n$ are $mn$ 
+elements, it is frequently necessary to know conditions guaranteeing the
+existence of elements in $F$ such that the following equations are satisfied:
+
+\[
+a,, xi + a,, x2 + . . . + alnxn = 0.
+(1) . *
+a ml~l + amzx2 + . . . + amnxn = 0.
+\]
+
+The reader Will recall that such equations are called linear
+homogeneous equations, and a set of elements, xi, x2,. . . , xr,
+of F, for which a11 the above equations are true, is called
+
+3
+a solution of the system. If not a11 of the elements xi, xg, . . . , xn
+are o the solution is called non-trivial; otherwise, it is called trivial.
+THEOREM 1. A system of linear homogeneous equations always
+
+has a non-trivial solution if the number of unknowns exceeds the num-
+ber of equations.
+
+The proof of this follows the method familiar to most high school
+students, namely, successive elimination of unknowns. If no equations
+in n > 0 variables are prescribed, then our unknowns are unrestricted
+and we may set them a11 = 1.
+We shall proceed by complete induction. Let us suppose that
+each system of k equations in more than k unknowns has a non-trivial
+solution when k < m. In the system of equations (1) we assume that
+n > m, and denote the expression a,ixi + . . . + ainxn by L,, i = 1,2,. . .,m.
+We seek elements xi, . . . , x,, not a11 o such that L, = L, = . . . = Lm = o.
+If aij = o for each i and j, then any choice of xi , . . . , xr, Will serve as
+a solution. If not a11 aij are o, then we may assume that ail f o, for
+the order in which the equations are written or in which the unknowns
+are numbered has no influence on the existence or non-existence of a
+simultaneous solution. We cari find a non-trivial solution to our given
+system of equations, if and only if we cari find a non-trivial solution
+to the following system:
+L, = 0
+L, - a,,a,;lL, = 0
+. . . . .
+Lm - amia,;lL, = 0
+
+For, if xi,. . . , x,, is a solution of these latter equations then, since
+L, = o, the second term in each of the remaining equations is o and,
+hence, L, = L, = . . . = Lm = o. Conversely, if (1) is satisfied, then
+the new system is clearly satisfied. The reader Will notice that the
+new system was set up in such a way as to “eliminate” x1 from the
+last m-l equations. Furthermore, if a non-trivial solution of the last
+m-l equations, when viewed as equations in x2, . . . , xn, exists then
+taking xi = - ai;‘( ai2xz + ar3x3 + . . . + alnxn) would give us a
+solution to the whole system. However, the last m-l equations have
+a solution by our inductive assumption, from which the theorem follows.
+Remark: If the linear homogeneous equations had been written
+in the form xxjaij = o, j = 1,2, . . . , n, the above theorem would still
+hold and with the same proof although with the order in which terms
+are written changed in a few instances.
+D. Dependence and Independence of Vectors.
+In a vector space V over a field F, the vectors A,, . . . , An are
+called dependent if there exist elements xi, . . . , x”, not a11 o, of F such
+that xiA, + x2A, + . . . + xnAn = 0. If the vectors A,, . . . ,An are
+not dependent, they are called independent.
+The dimension of a vector space V over a field F is the maximum
+number of independent elements in V. Thus, the dimension of V is n if
+there are n independent elements in V, but no set of more than n
+independent elements.
+A system A,, . . . , A, of elements in V is called a
+generating system of V if each element A of V cari be expressed
+
+5
+linearly in terms of A,, . . . , Am, i.e., A = Ca.A. for a suitable choice i=ll 1
+ofa,, i = l,..., m,inF.
+\end{document}
