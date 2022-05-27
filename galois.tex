@@ -187,7 +187,7 @@ $ \sum_{j=1}^t x_j B_j$ the $Bj$‘s are replaced by  $\sum_{i=1}^r a_{ij} A_i$ 
 A solution to the equations $\sum_{i=1}^t x_j a_{ij} = o$, $i = 1, \ldots, r$, always exists by Theorem 1.
 \end{proof}
 
-Remark: Any $n$ independent vectors $A_1, \ldots, A_n$, in an n dimensional vector space 
+Remark: Any $n$ independent vectors $A_1, \ldots, A_n$, in an $n$ dimensional vector space 
 form a generating system. 
 For any vector $A$, the vectors $A_1, A_2, \ldots ,A_n, A$ are dependent and the coefficient of $A$, in the
 dependence relation, cannot be zero. 
@@ -195,36 +195,56 @@ Solving for $A$ in terms of $A_1,\ldots,A_n$, exhibits $A_1, . . . ,A_n$ as a ge
 
 
 
-A subset of a vector space is called a subspace if it is a subgroup of the vector space and if, 
-in addition, the multiplication of any element in the subset by any element of the field is also in the subset.
-If $A_1 , \ldots , A_s$ are elements of a vector space $V$, then the set of all elements of the 
-form a, A, + . . . + asAS clearly forms a subspace of V.
+A subset of a vector space is called a subspace if it is a subgroup of the vector space 
+and if, in addition, the multiplication of any element in the subset by any element of the field is also in the subset.
+If $A_1 , \ldots , A_s$ are elements of a vector space $V$, then the set of all elements 
+of the form $a_1 A_1 + \ldots + a_s A_s$ clearly forms a subspace of $V$.
 It is also evident, from the definition of dimension, that the dimension
-of any subspace never
-exceeds the dimension of the whole
-vector space.
-An s-tuple of elements ( a,, . . . , as ) in a field F Will be called
-a - row vector.
-- The totality of such s-tuples form a vector space if
-we define
-a) (a,,a, ,..., as) = (b,,b, ,..., bS)ifandonlyif
-a, = b,, i = 1,. . . , s,
-B> (alta2,...,as)
-+ (bl,b2,...,bs)
-= (a1 + b,,a, + b,,
-. . ..aS + bs),y) b(a,,a, ,..., as) = (ba,,ba, ,..., baS),forban
-element of F.
-When the s-tuples are written vertically,
-they Will be called column vectors.
+of any subspace never exceeds the dimension of the whole vector space.
+An $s$-tuple of elements $(a_1, \ldots, a_s)$ in a field $F$ will be called a row vector.
+The totality of such $s$-tuples form a vector space if we define:
 
-THEOREM 3. The row (column) vector space F” of a11 n-tuples
-from a field F is a vector space of dimension n over F.
-The n elements
-Cl = (l,o,o ,...> 0)
-E2 = (o,l,o >..., 0)
-6, = (o,o,...,o,l)
-are independent and generate F”. Both remarks follow from the relation
-(a1,a2,. . . ,an) = Xaici.
+\begin{align*}
+(a_1,\ldots, a_s) =& (b_1,\ldots ,b_s)  \textrm{, iff }
+ a_i = b_i, i = 1,\ldots, s,\\
+(a_1,\ldots,a_s) + (b_1,\ldots,b_s) = & (a_1+b_1,\ldots,a_s+b_s)  \\
+b(a_1,\ldots, a_s) =& (ba_1,\ldots, ba_s) \textrm{, for } b \in F
+\end{align*}
+
+
+When the $s$-tuples are written vertically,
+
+\begin{equation}
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+\vdots \\
+a_s
+\end{pmatrix}
+\end{equation}
+
+they will be called column vectors.
+
+\begin{theorem}
+The row (column) vector space $F^n$ of all $n$-tuples from a field $F$ is a vector
+space of dimension $n$ over $F$.
+\end{theorem}
+
+\begin{proof}
+The $n$ elements
+\begin{align*}
+\epsilon_1 & = (1,o,\ldots, o)\\
+\epsilon_2 & = (o,1,\ldots, o)\\
+           & \vdots               \\
+\epsilon_n & = (o,o,\ldots,1)
+\end{align*}
+
+are independent and generate $F^n$. Both remarks follow from the relation
+$(a_1,a_2,\ldots,a_n) = \sum a_i \epsilon_i$.
+\end{proof}
+
+
+
 We cal1 a rectangular array
 of elements of a field F a matrix. By the right row rank of a matrix, we
 mean the maximum number of independent row vectors among the rows
@@ -267,7 +287,7 @@ equations is obtainable as a linear combination of the first r. Con-
 versely, any solution of (1) Will also be a solution of the first r
 equations. This means that the matrix9
 ( 4
-%la12- * .%n
+la12- * .n
 .
 .
 . .
@@ -288,6 +308,7 @@ r -
 -. c’.
 
 E. -
+
 Non-homogeneous Linear Equations.
 The system of non-homogeneous linear equations
 arrxi + ar2x2 + . . . + alnxn = bl
