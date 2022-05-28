@@ -1,11 +1,14 @@
-\documentclass[10pt,a4paper]{article}
+%\documentclass[10pt,a4paper]{article}
+\documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}
+
 \begin{document}
+\tableofcontents
 
 \section{LINEAR ALGEBRA}
 
@@ -191,11 +194,11 @@ $ \sum_{j=1}^t x_j B_j$ the $Bj$‘s are replaced by  $\sum_{i=1}^r a_{ij} A_i$ 
 A solution to the equations $\sum_{i=1}^t x_j a_{ij} = o$, $i = 1, \ldots, r$, always exists by Theorem 1.
 \end{proof}
 
-Remark: Any $n$ independent vectors $A_1, \ldots, A_n$, in an $n$ dimensional vector space 
+\textbf{Remark:} Any $n$ independent vectors $A_1, \ldots, A_n$, in an $n$ dimensional vector space 
 form a generating system. 
-For any vector $A$, the vectors $A_1, A_2, \ldots ,A_n, A$ are dependent and the coefficient of $A$, in the
+For any vector $A$ the vectors $A_1, \ldots ,A_n, A$ are dependent and the coefficient of $A$, in the
 dependence relation, cannot be zero. 
-Solving for $A$ in terms of $A_1,\ldots,A_n$, exhibits $A_1, . . . ,A_n$ as a generating system.
+Solving for $A$ in terms of $A_1,\ldots,A_n$, exhibits $A_1, \ldots,A_n$ as a generating system.
 
 
 
@@ -421,19 +424,20 @@ system for the $n$-dimensional space of column vectors.
 Conversely, let us suppose our equations have one and only one solution. 
 In this case, the homogeneous equations added term by term to a solution of the 
 original equations would yield a new solution to the original equations. 
-Hence, the homogeneous equations have only the trivial solution.
+Hence, the homogeneous equations have only the trivial solution\footnote{Of the preceding theory only Theorem 1, for
+homogeneous equations and the notion of linear dependence are assumed known }.
 \end{proof}
 
 
-\subsection{Determinants}
+\subsection{Determinants} 
+
 The theory of determinants that we shall develop in this chapter
 is not needed in Galois theory. 
 The reader may, therefore, omit this section if he so desires.
 We assume our field to be commutative and consider the square matrix
 
-1) Of the preceding theory only Theorem 1, for
-homogeneous equations and the notion of
-linear dependence are assumed known.12
+1) 
+
 ( J
 allalz*
 . . . %n
@@ -2373,7 +2377,10 @@ x1a,(8) + xp*(8> + . . . + ~,.,a,( 0) = 0 where the xi are in F. Apply-
 ing the automorphism oi to it would lead to n homogeneous equations for
 the n unknowns xi. (5) shows that xi = 0 and our theorem is proved.
 0. ~~
-Theorem on Natural Irrationalities.
+
+
+\subsection{Theorem on Natural Irrationalities}
+
 L,et F be a field, p(x) a polynomial in F whose irreducible factors
 are separable, and let E be a splitting field for p(x). Let B be an arbi-
 trary extension of F, and let us denote by EB the splitting field of p(x)
@@ -2527,7 +2534,7 @@ SO
 would each succeeding group, and the sequence
 could not end with the unit.72
 
-\subsection{ Solutions of Equations by Radicals}
+\subsection{Solutions of Equations by Radicals}
 
 The extension field E over F is called an extension by radicals
 if there exist intermediate fields B, , B, , . . . , Br = E and Bi = Bi-r( a i)
