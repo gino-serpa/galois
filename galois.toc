@@ -1,28 +1,28 @@
-\contentsline {section}{\numberline {0.1}LINEAR ALGEBRA}{2}%
-\contentsline {subsection}{\numberline {0.1.1}Fields}{2}%
-\contentsline {subsection}{\numberline {0.1.2}Vector Spaces}{2}%
-\contentsline {subsection}{\numberline {0.1.3}Homogeneous Linear Equations}{3}%
-\contentsline {subsection}{\numberline {0.1.4}Dependence and Independence of Vectors}{4}%
-\contentsline {subsection}{\numberline {0.1.5}Non-homogeneous Linear Equations}{8}%
-\contentsline {subsection}{\numberline {0.1.6}Determinants}{10}%
-\contentsline {section}{\numberline {0.2}FIELD THEORY}{14}%
-\contentsline {subsection}{\numberline {0.2.1}Extension Fields}{14}%
-\contentsline {subsection}{\numberline {0.2.2}Polynomials}{15}%
-\contentsline {subsection}{\numberline {0.2.3}Algebraic Elements}{17}%
-\contentsline {subsection}{\numberline {0.2.4}Splitting Fields}{19}%
-\contentsline {subsection}{\numberline {0.2.5}Unique Decomposition of Polynomials into Irreducible Factors}{21}%
-\contentsline {subsection}{\numberline {0.2.6}Group Characters}{22}%
-\contentsline {subsection}{\numberline {0.2.7}Applications and Examples to Theorem 13}{24}%
-\contentsline {subsection}{\numberline {0.2.8}Normal Extensions}{26}%
-\contentsline {subsection}{\numberline {0.2.9}Finite Fields}{30}%
-\contentsline {subsection}{\numberline {0.2.10}K. Noether Equations}{34}%
-\contentsline {subsection}{\numberline {0.2.11}L. Kummer’s Fields}{35}%
-\contentsline {subsection}{\numberline {0.2.12}Simple Extensions}{38}%
-\contentsline {subsection}{\numberline {0.2.13}Existence of a Normal Basis}{39}%
-\contentsline {subsection}{\numberline {0.2.14}Theorem on Natural Irrationalities}{40}%
-\contentsline {section}{\numberline {0.3}APPLICATIONS}{40}%
-\contentsline {subsection}{\numberline {0.3.1}Solvable - Groups}{40}%
-\contentsline {subsection}{\numberline {0.3.2}Permutation Groups}{42}%
-\contentsline {subsection}{\numberline {0.3.3}Solutions of Equations by Radicals}{42}%
-\contentsline {subsection}{\numberline {0.3.4}The General Equation of Degree $n$}{44}%
-\contentsline {subsection}{\numberline {0.3.5}Ruler and Compass Constructions}{47}%
+\contentsline {section}{\numberline {I}LINEAR ALGEBRA}{2}%
+\contentsline {subsection}{\numberline {I.1}Fields}{2}%
+\contentsline {subsection}{\numberline {I.2}Vector Spaces}{2}%
+\contentsline {subsection}{\numberline {I.3}Homogeneous Linear Equations}{3}%
+\contentsline {subsection}{\numberline {I.4}Dependence and Independence of Vectors}{4}%
+\contentsline {subsection}{\numberline {I.5}Non-homogeneous Linear Equations}{8}%
+\contentsline {subsection}{\numberline {I.6}Determinants}{10}%
+\contentsline {section}{\numberline {II}FIELD THEORY}{15}%
+\contentsline {subsection}{\numberline {II.1}Extension Fields}{15}%
+\contentsline {subsection}{\numberline {II.2}Polynomials}{16}%
+\contentsline {subsection}{\numberline {II.3}Algebraic Elements}{17}%
+\contentsline {subsection}{\numberline {II.4}Splitting Fields}{20}%
+\contentsline {subsection}{\numberline {II.5}Unique Decomposition of Polynomials into Irreducible Factors}{22}%
+\contentsline {subsection}{\numberline {II.6}Group Characters}{22}%
+\contentsline {subsection}{\numberline {II.7}Applications and Examples to Theorem 13}{24}%
+\contentsline {subsection}{\numberline {II.8}Normal Extensions}{26}%
+\contentsline {subsection}{\numberline {II.9}Finite Fields}{30}%
+\contentsline {subsection}{\numberline {II.10}K. Noether Equations}{34}%
+\contentsline {subsection}{\numberline {II.11}L. Kummer’s Fields}{35}%
+\contentsline {subsection}{\numberline {II.12}Simple Extensions}{38}%
+\contentsline {subsection}{\numberline {II.13}Existence of a Normal Basis}{39}%
+\contentsline {subsection}{\numberline {II.14}Theorem on Natural Irrationalities}{40}%
+\contentsline {section}{\numberline {III}APPLICATIONS}{41}%
+\contentsline {subsection}{\numberline {III.1}Solvable - Groups}{41}%
+\contentsline {subsection}{\numberline {III.2}Permutation Groups}{42}%
+\contentsline {subsection}{\numberline {III.3}Solutions of Equations by Radicals}{43}%
+\contentsline {subsection}{\numberline {III.4}The General Equation of Degree $n$}{44}%
+\contentsline {subsection}{\numberline {III.5}Ruler and Compass Constructions}{47}%
