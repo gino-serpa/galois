@@ -149,10 +149,10 @@ Thus, the dimension of $V$ is $n$ if there are $n$ independent elements in $V$,
 but no set of more than $n$ independent elements.
 
 
-A system $A_1, \ldots, A_n$, of elements in $V$ is called a
+A system $A_1, \ldots, A_m$, of elements in $V$ is called a
 generating system of $V$ if each element $A$ of $V$ can be expressed linearly in 
-terms of $A_1, \ldots, Am$, i.e., $A = \sum_{i=1}^m a_i A_i$ for a suitable choice
-of $a_i, i = l, \ldots , m$ , in $F$ .
+terms of $A_1, \ldots, A_m$, i.e., $A = \sum_{i=1}^m a_i A_i$ for a suitable choice
+of $a_i, i = 1, \ldots , m$ , in $F$ .
 
 \begin{theorem}
 In any generating system the maximum number of
@@ -163,10 +163,11 @@ independent vectors is equal to the dimension of the vector space.
 Let $A_1, \ldots, A_m$ be a generating system of a vector space $V$ of dimension $n$. 
 Let $r$ be the maximum number of independent elements in the generating system. 
 By a suitable reordering of the generators we may assume $A_1, \ldots , A_r$ independent. 
-By the definition of dimension it follows that $r < n$. 
-For each $j$, $A_1, \ldots, A_r, A_{r+j}$ are dependent, and in the relation
+By the definition of dimension it follows that $r \leq n$. 
+For each $j$, $A_1, \ldots, A_r, A_{r+j}$ are dependent, and in the relation:
+
 \begin{equation}
-a_1 A_1 + a_2 A_2+ \ldots + a_r A_r + a_{r+j} A{r+j} = o
+a_1 A_1 + a_2 A_2+ \ldots + a_r A_r + a_{r+j} A_{r+j} = o
 \end{equation}
 
 expressing this, $a_{r+j} \neq o$, for the contrary would assert the dependence
@@ -181,7 +182,7 @@ linear relation for any element of $V$ the terms involving $A_{r+j}$, $j\neq o$,
 can all be replaced by linear expressions in $A_1, \ldots , A_r$.
 
 Now, let $B_1,\ldots, B_t$ be any system of vectors in $V$ where $t > r$,
-then there exist $a_{ij}$ such that $Bj = \sum_{i=1}^r a_{ij} A_i$, $j = 1,2, \ldots ,t$, 
+then there exist $a_{ij}$ such that $B_j = \sum_{i=1}^r a_{ij} A_i$, $j = 1,2, \ldots ,t$, 
 since the $A_i$’s form a generating system. 
 If we can show that $B_1, \ldots , B_t$ are dependent, this will give us $r \geq n$, 
 and the theorem will follow from this together with the previous inequality $r \leq n$. 
@@ -281,7 +282,7 @@ called the rank of the matrix.
 \end{theorem}
 
 \begin{proof}
-Cal1 the column vectors of the matrix $C_1,\ldots,C_n$ and the 
+Call the column vectors of the matrix $C_1,\ldots,C_n$ and the 
 row vectors $R_1,\ldots , R_m$. 
 The column vector $0$ is:
 
