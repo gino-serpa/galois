@@ -12,13 +12,13 @@
 \contentsline {subsection}{\numberline {II.4}Splitting Fields}{20}%
 \contentsline {subsection}{\numberline {II.5}Unique Decomposition of Polynomials into Irreducible Factors}{22}%
 \contentsline {subsection}{\numberline {II.6}Group Characters}{22}%
-\contentsline {subsection}{\numberline {II.7}Applications and Examples to Theorem 13}{24}%
+\contentsline {subsection}{\numberline {II.7}Applications and Examples to Theorem 13}{25}%
 \contentsline {subsection}{\numberline {II.8}Normal Extensions}{26}%
 \contentsline {subsection}{\numberline {II.9}Finite Fields}{30}%
-\contentsline {subsection}{\numberline {II.10}K. Noether Equations}{34}%
-\contentsline {subsection}{\numberline {II.11}L. Kummer’s Fields}{35}%
-\contentsline {subsection}{\numberline {II.12}Simple Extensions}{38}%
-\contentsline {subsection}{\numberline {II.13}Existence of a Normal Basis}{39}%
+\contentsline {subsection}{\numberline {II.10}K. Noether Equations}{35}%
+\contentsline {subsection}{\numberline {II.11}L. Kummer’s Fields}{36}%
+\contentsline {subsection}{\numberline {II.12}Simple Extensions}{39}%
+\contentsline {subsection}{\numberline {II.13}Existence of a Normal Basis}{40}%
 \contentsline {subsection}{\numberline {II.14}Theorem on Natural Irrationalities}{40}%
 \contentsline {section}{\numberline {III}APPLICATIONS}{41}%
 \contentsline {subsection}{\numberline {III.1}Solvable - Groups}{41}%
